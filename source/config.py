@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 from environs import Env
+from sqlalchemy.engine.url import URL
 
 
 @dataclass
@@ -9,7 +10,16 @@ class DbConfig:
     password: str
     user: str
     database: str
+    port: int
 
+    def construct_alchemy_url(self, library="asyncpg") -> str|URL:
+        return str(URL.create(
+            drivername=f"postgresql+{library}",
+            host=self.host,
+            port=self.port,
+            username=self.user,
+            password=self.password,
+            database=self.database))
 
 @dataclass
 class TgBot:
@@ -44,7 +54,8 @@ def load_config(path: str = None):
             host=env.str('DB_HOST'),
             password=env.str('DB_PASS'),
             user=env.str('DB_USER'),
-            database=env.str('DB_NAME')
+            database=env.str('DB_NAME'),
+            port=env.int("DB_PORT")
         ),
         misc=Miscellaneous()
     )
