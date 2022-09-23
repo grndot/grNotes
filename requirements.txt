@@ -1,0 +1,7 @@
+aiogram~=2.18
+aioredis~=2.0
+alembic~=1.8
+asyncpg~=0.26
+environs~=9.0
+psycopg2-binary~=2.9
+SQLAlchemy~=1.4

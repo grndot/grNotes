@@ -1,0 +1,63 @@
+трэба зрабіць бота, які будзе трымаць маі натакі 
+
+
+у гэтым боце можно будзе дадаваць\ўключаць\адключаць маркеры
+? - каб дадаць адключаны маркер
+! - каб дадаць уключаны маркер
+сібалы ?\! трэба дадаваць у начала радку каб стварыць маркер
+
+
+бот павінен падтрымліваць некалькі моў (і18n):
+расейская
+беларуская
+украінская
+польская
+ангельская
+чэшская
+
+
+база данных (postgresql)
+
+CREATE TABLE "public.Languages" (
+	"ID" serial NOT NULL,
+	"Name" TEXT NOT NULL,
+	CONSTRAINT "Languages_pk" PRIMARY KEY ("ID")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE "public.Users" (
+	"ID" serial NOT NULL,
+	"LanguageID" int NOT NULL,
+	"TelegramID" bigint NOT NULL UNIQUE,
+	"RecoveryKey" TEXT NOT NULL UNIQUE,
+	CONSTRAINT "Users_pk" PRIMARY KEY ("ID")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE "public.Notes" (
+	"ID" serial NOT NULL,
+	"OwnerID" int NOT NULL,
+	"Title" varchar(64) NOT NULL,
+	"Text" varchar(2048) NOT NULL,
+	CONSTRAINT "Notes_pk" PRIMARY KEY ("ID")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+
+ALTER TABLE "Users" ADD CONSTRAINT "Users_fk0" FOREIGN KEY ("LanguageID") REFERENCES "Languages"("ID");
+
+ALTER TABLE "Notes" ADD CONSTRAINT "Notes_fk0" FOREIGN KEY ("OwnerID") REFERENCES "Users"("ID");
+
+
+
+
+
