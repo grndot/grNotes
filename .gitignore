@@ -1,5 +1,5 @@
 # alembic
-alembic/
+#alembic/
 alembic.ini
 
 # Byte-compiled / optimized / DLL files
@@ -60,6 +60,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+#Pycache
+__pycache__/
 
 # Pyre type checker
 .pyre/
