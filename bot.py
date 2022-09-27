@@ -8,13 +8,19 @@ from aiogram.contrib.fsm_storage.redis import RedisStorage2
 from source.config import load_config
 from source.filters.admin import AdminFilter
 from source.handlers.start import reg_start
+from source.handlers.recovery.code import reg_get_recovery_code
+from source.handlers.recovery.check import reg_check_recovery_code
 from source.middlewares.environment import EnvironmentMiddleware
+from source.middlewares.db import DatabaseMiddleware
+from source.services.db.session_pool import create_session_pool
+
 
 logger = logging.getLogger(__name__)
 
 
-def register_all_middlewares(dp, config):
+def register_all_middlewares(dp, config, session_pool):
     dp.setup_middleware(EnvironmentMiddleware(config=config))
+    dp.setup_middleware(DatabaseMiddleware(session_pool=session_pool))
 
 
 def register_all_filters(dp):
@@ -23,6 +29,8 @@ def register_all_filters(dp):
 
 def register_all_handlers(dp):
     reg_start(dp)
+    reg_get_recovery_code(dp)
+    reg_check_recovery_code(dp)
 
 
 async def main():
@@ -33,13 +41,14 @@ async def main():
     logger.info("Starting bot")
     config = load_config(".env")
 
+    session_pool = create_session_pool(config.db)
     storage = RedisStorage2() if config.tg_bot.use_redis else MemoryStorage()
     bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
     dp = Dispatcher(bot, storage=storage)
 
     bot['config'] = config
 
-    register_all_middlewares(dp, config)
+    register_all_middlewares(dp, config, session_pool)
     register_all_filters(dp)
     register_all_handlers(dp)
 
