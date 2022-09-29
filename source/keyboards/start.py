@@ -13,7 +13,7 @@ def start_kb(
     
     menu_button = InlineKeyboardButton(
                         text="Continue",
-                        callback_data="menu"
+                        callback_data="main_menu"
                         )
     
     recovery_button = InlineKeyboardButton(

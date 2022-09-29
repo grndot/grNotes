@@ -11,9 +11,10 @@ async def start(
     if isinstance(instance, types.Message):
         await instance.delete()
         await instance.answer(
-                text="This is grnNotes!",
+                text="Notes by grn.",
                 reply_markup=start_kb())
     if isinstance(instance, types.CallbackQuery):
+        await instance.answer()
         await instance.message.edit_text(
                 text="This is grnNotes!",
                 reply_markup=start_kb())

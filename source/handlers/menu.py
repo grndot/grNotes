@@ -10,6 +10,7 @@ async def main_menu(cb: types.CallbackQuery):
             "",
             "Just use it."
             ]
+    await cb.answer()
     await cb.message.edit_text(
             text="\n".join(text),
             reply_markup=menu_kb())
