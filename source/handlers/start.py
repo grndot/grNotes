@@ -1,16 +1,13 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.keyboards.start import start_kb
-from source.services.db.users import checkUserExists, insertNewUser
-from source.services.generators.key import generate_key
+
 
 
 async def start(
         instance: types.Message|types.CallbackQuery, 
-        state: FSMContext,
-        session: AsyncSession):
+        state: FSMContext):
     
     text = "Notes by grn."
     
@@ -23,15 +20,7 @@ async def start(
                 reply_markup=start_kb())
     
     if isinstance(instance, types.CallbackQuery):
-        if not checkUserExists(
-                session=session,
-                telegram_id=instance.from_user.id):
-            await insertNewUser(
-                    session=session,
-                    telegram_id=instance.from_user.id,
-                    language_id=1,
-                    recovery_key=generate_key(
-                        instance.from_user.id)) 
+
         await instance.answer()
         await instance.message.edit_text(
                 text=text,
