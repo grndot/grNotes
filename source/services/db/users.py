@@ -3,6 +3,16 @@ from sqlalchemy import insert, select
 from source.models.database import Users
 
 
+async def checkUserExists(
+        session,
+        telegram_id):
+    stmt = select(Users.TelegramID).where(
+            Users.TelegramID == telegram_id)
+    result = await session.execute(stmt)
+    print(result.first())
+    return True if result.first() else False
+
+
 async def selectTelegramIdAndRecoveryCode(
         session, 
         key):
@@ -26,3 +36,6 @@ async def insertNewUser(
             RecoveryKey=recovery_key)
     result = await session.execute(stmt)
     return result.scalars()
+
+
+

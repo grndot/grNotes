@@ -10,6 +10,7 @@ from source.filters.admin import AdminFilter
 from source.handlers.start import reg_start
 from source.handlers.recovery.code import reg_get_recovery_code
 from source.handlers.recovery.check import reg_check_recovery_code
+from source.handlers.menu import reg_main_menu
 from source.middlewares.environment import EnvironmentMiddleware
 from source.middlewares.db import DatabaseMiddleware
 from source.services.db.session_pool import create_session_pool
@@ -31,6 +32,7 @@ def register_all_handlers(dp):
     reg_start(dp)
     reg_get_recovery_code(dp)
     reg_check_recovery_code(dp)
+    reg_main_menu(dp)
 
 
 async def main():
