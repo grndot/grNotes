@@ -5,7 +5,7 @@ from source.config import load_config
 
 from source.keyboards.start import start_kb
 from source.services.db.users import (
-    selectTelegramIdAndRecoveryCode)
+    selectRecoveryCode)
 from source.states.coderecovery import CodeRecoveryState
 
 
@@ -18,7 +18,7 @@ async def check_recovery_code(
     data = await state.get_data()
     await msg.delete()
 
-    if await selectTelegramIdAndRecoveryCode(
+    if await selectRecoveryCode(
             session, 
             msg.text):
         text = [

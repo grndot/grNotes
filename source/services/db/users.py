@@ -9,11 +9,15 @@ async def checkUserExists(
     stmt = select(Users.TelegramID).where(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
-    print(result.all())
-    return True if result.all() else False
+    if result.first() is None:
+        print(f"User {telegram_id} is login")
+        return False
+    else:
+        print(f"User {telegram_id} is sing up")
+        return True
 
 
-async def selectTelegramIdAndRecoveryCode(
+async def selectRecoveryCode(
         session, 
         key):
     stmt = select(
@@ -37,6 +41,5 @@ async def insertNewUser(
     result = await session.execute(stmt)
     await session.commit()
     return result.scalars()
-
 
 
