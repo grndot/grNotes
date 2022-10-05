@@ -1,4 +1,4 @@
-from sqlalchemy import insert, select
+from sqlalchemy import insert, select, update
 
 from source.models.database import Users
 
@@ -43,3 +43,15 @@ async def insertNewUser(
     return result.scalars()
 
 
+async def updateUser(
+        session,
+        telegram_id,
+        recovery_key,
+        new_recovery_key):
+    stmt = update(Users).values(
+            Users.TelegramID == telegram_id,
+            Users.RecoveryKey == new_recovery_key).where(
+            Users.RecoveryKey == recovery_key)
+    result = await session.execute(stmt)
+    await session.commit()
+    return result.scalars()
