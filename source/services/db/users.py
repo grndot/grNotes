@@ -17,7 +17,7 @@ async def checkUserExists(
         return True
 
 
-async def selectRecoveryCode(
+async def checkRecoveryCode(
         session, 
         key):
     stmt = select(
@@ -25,8 +25,12 @@ async def selectRecoveryCode(
             Users.RecoveryKey).where(
                     Users.RecoveryKey == key)
     result = await session.execute(stmt)
-    print(result.all())
-    return result.all()
+    status = result.first()
+    print(status)
+    if status is None:
+        return False
+    else: 
+        return True
 
 
 async def insertNewUser(
@@ -43,15 +47,23 @@ async def insertNewUser(
     return result.scalars()
 
 
-async def updateUser(
+async def updateUserTelegramId(
         session,
-        telegram_id,
-        recovery_key,
-        new_recovery_key):
-    stmt = update(Users).values(
-            Users.TelegramID == telegram_id,
-            Users.RecoveryKey == new_recovery_key).where(
-            Users.RecoveryKey == recovery_key)
-    result = await session.execute(stmt)
+        recovery_key: str,
+        telegram_id: int):
+    stmt = update(Users).where(
+            Users.RecoveryKey == recovery_key).values(
+                    {Users.TelegramID: telegram_id})    
+    await session.execute(stmt)
     await session.commit()
-    return result.scalars()
+
+
+async def updateUserRecoveryKey(
+        session,
+        recovery_key: str,
+        new_recovery_key: str):
+    stmt = update(Users).where(
+            Users.RecoveryKey == recovery_key).values(
+                    {Users.RecoveryKey: new_recovery_key})
+    await session.execute(stmt)
+    await session.commit()

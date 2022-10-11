@@ -5,7 +5,10 @@ from source.config import load_config
 
 from source.keyboards.start import start_kb
 from source.services.db.users import (
-    selectRecoveryCode)
+    checkRecoveryCode,
+    updateUserRecoveryKey,
+    updateUserTelegramId)
+from source.services.generators.key import generate_key
 from source.states.coderecovery import CodeRecoveryState
 
 
@@ -18,7 +21,7 @@ async def check_recovery_code(
     data = await state.get_data()
     await msg.delete()
 
-    if await selectRecoveryCode(
+    if await checkRecoveryCode(
             session, 
             msg.text):
         text = [
@@ -26,6 +29,14 @@ async def check_recovery_code(
                 "",
                 "",
                 "Press button below."]
+        await updateUserTelegramId(
+                session=session,
+                telegram_id=msg.from_user.id,
+                recovery_key=msg.text)
+        await updateUserRecoveryKey(
+                session=session,
+                recovery_key=msg.text,
+                new_recovery_key=generate_key(msg.from_user.id))
         await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,
                 message_id=data.get("message_id"),
