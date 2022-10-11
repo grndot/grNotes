@@ -3,6 +3,28 @@ from sqlalchemy import insert, select, update
 from source.models.database import Users
 
 
+async def getIDbyTelegramID(
+        session,
+        telegram_id):
+    stmt = select(Users.ID).where(
+            Users.TelegramID == telegram_id)
+    result = await session.execute(stmt)
+    answer = result.first()
+    print(f"{answer[0]} has got by {telegram_id=}")
+    return answer[0]
+
+
+async def getIDbyRecoveryKey(
+        session,
+        recovery_key):
+    stmt = select(Users.ID).where(
+            Users.RecoveryKey == recovery_key)
+    result = await session.execute(stmt)
+    answer = result.first()
+    print(f"{answer[0]} has got by {recovery_key=}")
+    return answer[0]
+
+
 async def checkUserExists(
         session,
         telegram_id):
@@ -17,7 +39,7 @@ async def checkUserExists(
         return True
 
 
-async def checkRecoveryCode(
+async def checkRecoveryKey(
         session, 
         key):
     stmt = select(

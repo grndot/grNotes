@@ -4,8 +4,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from source.config import load_config
 
 from source.keyboards.start import start_kb
+from source.services.db.notes import updateOwnerID
 from source.services.db.users import (
-    checkRecoveryCode,
+    checkRecoveryKey,
+    getIDbyRecoveryKey,
+    getIDbyTelegramID,
     updateUserRecoveryKey,
     updateUserTelegramId)
 from source.services.generators.key import generate_key
@@ -21,7 +24,7 @@ async def check_recovery_code(
     data = await state.get_data()
     await msg.delete()
 
-    if await checkRecoveryCode(
+    if await checkRecoveryKey(
             session, 
             msg.text):
         text = [
@@ -29,6 +32,14 @@ async def check_recovery_code(
                 "",
                 "",
                 "Press button below."]
+        await updateOwnerID(
+                session=session,
+                old_id=await getIDbyRecoveryKey(
+                    session=session,
+                    recovery_key=msg.text),
+                new_id=await getIDbyTelegramID(
+                    session=session,
+                    telegram_id=msg.from_user.id))
         await updateUserTelegramId(
                 session=session,
                 telegram_id=msg.from_user.id,
@@ -37,6 +48,10 @@ async def check_recovery_code(
                 session=session,
                 recovery_key=msg.text,
                 new_recovery_key=generate_key(msg.from_user.id))
+        await updateOwnerID(
+                session=session,
+                old_id=1,
+                new_id=1)
         await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,
                 message_id=data.get("message_id"),
