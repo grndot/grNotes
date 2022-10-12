@@ -5,7 +5,7 @@ def back_to_list_keyboard() -> InlineKeyboardMarkup:
     back_button = InlineKeyboardButton(
             text="Back",
             )
-    keyboard = InlineKeyboardMarkup(
+    return InlineKeyboardMarkup(
             inline_keyboard=[
                 [back_button]
                 ])
