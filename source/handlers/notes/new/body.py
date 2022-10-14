@@ -15,16 +15,21 @@ async def choose_type_of_note(
     text = [
             # text[0] - for True
             [
-                f"Choose type for {msg.text} note",
+                f"Write your note",
                 "",
-                "",
-                ""],
+                "Help:",
+                '<code>!)</code> - filled checkbox',
+                '<code>?)</code> - unfilled checkbox',
+                'and remember:',
+                '',
+                'Max lenght of your note - 2048 symbols!',
+                '(This is a restriction from a Telegram)'],
             # text[1] - for False
             [
                 "Your leght of title more than 64 symbols",
                 "",
                 "",
-                "Try again or press \"Back\" button"
+                "Try again!.."
                 ]]
     if len(title) <= 64:
         await Bot(token=token).edit_message_text(
@@ -32,9 +37,14 @@ async def choose_type_of_note(
                 message_id=data.get("main_menu_message_id"),
                 text="\n".join(text[0]),
                 reply_markup=create_new_note_keyboard(
-                    title_is_64_symbols=True))
+                    is_title_64_symbols=True))
+        await CreatingNoteState.Body.set()
     else:
-       pass 
+       await Bot(token=token).edit_message_text(
+                chat_id=msg.chat.id,
+                message_id=data.get("main_menu_message_id"),
+                text="\n".join(text[1]),
+                reply_markup=create_new_note_keyboard()) 
 
 
 def reg_choose_type_of_note(dp: Dispatcher):
