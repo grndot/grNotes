@@ -10,7 +10,7 @@ async def create_note(
         state: FSMContext):
     await cb.answer()
     await cb.message.edit_text(
-            text="Create name of your note",
+            text="Create name of your note\n\n\n(Max. lenght is 64 symbols!)",
             reply_markup=create_new_note_keyboard())
     await CreatingNoteState.Title.set()
     await state.update_data(

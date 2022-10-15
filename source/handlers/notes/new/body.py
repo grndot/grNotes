@@ -9,36 +9,36 @@ from source.states.createnote import CreatingNoteState
 async def choose_type_of_note(
         msg: types.Message,
         state: FSMContext):
+    
     data = await state.get_data()
-    title = msg.text
-    token = load_config().tg_bot.token
     text = [
             # text[0] - for True
             [
-                f"Write your note",
-                "",
-                "Help:",
-                '<code>!)</code> - filled checkbox',
-                '<code>?)</code> - unfilled checkbox',
-                'and remember:',
+                f'<code>{msg.text}</code> is a good title for note!',
                 '',
-                'Max lenght of your note - 2048 symbols!',
-                '(This is a restriction from a Telegram)'],
+                '',
+                'Press "Save" button to continue',
+                ],
             # text[1] - for False
             [
-                "Your leght of title more than 64 symbols",
-                "",
-                "",
-                "Try again!.."
+                'Lenght of title cannot be more than 64 symobls!',
+                '',
+                '',
+                'Try again...'
                 ]]
+    title = msg.text
+    token = load_config().tg_bot.token
+    
     if len(title) <= 64:
         await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,
                 message_id=data.get("main_menu_message_id"),
                 text="\n".join(text[0]),
                 reply_markup=create_new_note_keyboard(
-                    is_title_64_symbols=True))
-        await CreatingNoteState.Body.set()
+                   is_title_correct=True),
+                parse_mode="HTML")
+        await CreatingNoteState.Saving.set()
+    
     else:
        await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,

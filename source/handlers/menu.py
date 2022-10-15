@@ -1,4 +1,5 @@
 from aiogram import types, Dispatcher
+from aiogram.dispatcher import FSMContext
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.keyboards.menu import menu_kb
@@ -8,7 +9,9 @@ from source.services.generators.key import generate_key
 
 async def main_menu(
         cb: types.CallbackQuery,
+        state: FSMContext,
         session: AsyncSession):
+    await state.reset_state(with_data=True)
     text = [
             "Notes by grn.",
             "",
@@ -33,4 +36,5 @@ async def main_menu(
 def reg_main_menu(dp: Dispatcher):
     dp.register_callback_query_handler(
             main_menu,
+            state="*",
             text="main_menu")
