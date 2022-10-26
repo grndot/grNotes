@@ -31,15 +31,6 @@ async def main_menu(
                     language_id=1,
                     recovery_key=generate_key(
                         cb.from_user.id)) 
-        await cb.answer()
-        await cb.message.edit_text(
-                text="\n".join(main_menu_text),
-                reply_markup=menu_kb(await getNotesTitleAndIDByOwnerID(
-                    session=session,
-                    owner_id=await getIDbyTelegramID(
-                        session=session,
-                        telegram_id=cb.message.from_user.id)
-                    )))
     elif current_state == CreatingNoteState.Saving:
         state_data = await state.get_data()
         await insertNewNote(
@@ -49,6 +40,16 @@ async def main_menu(
                     telegram_id=cb.from_user.id),
                 title=state_data.get("title"),
                 text="")
+
+    await cb.answer()
+    await cb.message.edit_text(
+            text="\n".join(main_menu_text),
+            reply_markup=menu_kb(await getNotesTitleAndIDByOwnerID(
+                session=session,
+                owner_id=await getIDbyTelegramID(
+                    session=session,
+                    telegram_id=cb.message.from_user.id)
+                )))
 
 
 def reg_main_menu(dp: Dispatcher):
