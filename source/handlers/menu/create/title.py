@@ -1,7 +1,7 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 
-from source.keyboards.list import create_new_note_keyboard
+from source.keyboards.creating import create_new_note_keyboard
 from source.states.createnote import CreatingNoteState
 
 
@@ -20,5 +20,5 @@ async def create_note(
 def reg_create_note(dp: Dispatcher):
     dp.register_callback_query_handler(
             create_note,
-            callback_data="create",
+            text="create",
             state="*")

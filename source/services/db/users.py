@@ -10,8 +10,11 @@ async def getIDbyTelegramID(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
     answer = result.first()
-    print(f"{answer[0]} has got by {telegram_id=}")
-    return answer[0]
+    if answer is None:
+        return
+    else:
+        print(f"{answer[0]} has got by {telegram_id=}")
+        return answer[0]
 
 
 async def getIDbyRecoveryKey(

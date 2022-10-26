@@ -1,12 +1,12 @@
 from aiogram import types, Bot, Dispatcher
 from aiogram.dispatcher import FSMContext
 from source.config import load_config
-from source.keyboards.list import create_new_note_keyboard
+from source.keyboards.creating import create_new_note_keyboard
 
 from source.states.createnote import CreatingNoteState
 
 
-async def choose_type_of_note(
+async def check_title_of_note(
         msg: types.Message,
         state: FSMContext):
     
@@ -30,6 +30,7 @@ async def choose_type_of_note(
     token = load_config().tg_bot.token
     
     if len(title) <= 64:
+        await msg.delete()
         await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,
                 message_id=data.get("main_menu_message_id"),
@@ -38,7 +39,7 @@ async def choose_type_of_note(
                    is_title_correct=True),
                 parse_mode="HTML")
         await CreatingNoteState.Saving.set()
-    
+        await state.set_data({"title": msg.text})
     else:
        await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,
@@ -47,7 +48,7 @@ async def choose_type_of_note(
                 reply_markup=create_new_note_keyboard()) 
 
 
-def reg_choose_type_of_note(dp: Dispatcher):
+def reg_check_title_of_note(dp: Dispatcher):
     dp.register_message_handler(
-            choose_type_of_note,
+            check_title_of_note,
             state=CreatingNoteState.Title)
