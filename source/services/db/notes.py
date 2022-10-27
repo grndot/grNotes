@@ -1,14 +1,15 @@
 from sqlalchemy import insert, select, update
 from sqlalchemy import func
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.models.database import Notes
 
 
 async def insertNewNote(
-        session,
-        owner_id,
-        title,
-        text):
+        session: AsyncSession,
+        owner_id: int,
+        title: str,
+        text: str):
     stmt = insert(Notes).values(
             OwnerID=owner_id,
             Title=title,
@@ -20,11 +21,11 @@ async def insertNewNote(
 
 
 async def getNotesTitleAndIDByOwnerID(
-        session,
-        owner_id):
+        session: AsyncSession,
+        owner_id: int):
  
     class Note:
-        def __init__(self, title, id_note) -> None:
+        def __init__(self, title: str, id_note: int) -> None:
     
             self.title = title
             self.id = id_note
@@ -39,8 +40,8 @@ async def getNotesTitleAndIDByOwnerID(
 
 
 async def getCountNotes(
-        session,
-        owner_id):
+        session: AsyncSession,
+        owner_id: int):
     stmt = select(func.count()).select_from(
             Notes).where(
                     Notes.OwnerID == owner_id)
@@ -51,12 +52,11 @@ async def getCountNotes(
 
 
 async def updateOwnerID(
-        session,
-        old_id,
-        new_id):
-    stmt = update(Notes.OwnerID).where(
-            Notes.OwnerID == old_id).order_by(
-                    ).values(
+        session: AsyncSession,
+        old_id: int,
+        new_id: int):
+    stmt = update(Notes).where(
+            Notes.OwnerID == old_id).values(
                     {Notes.OwnerID: new_id})
     await session.execute(stmt)
     await session.commit()
