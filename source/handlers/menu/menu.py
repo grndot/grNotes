@@ -20,6 +20,7 @@ async def main_menu(
         session: AsyncSession):
     current_state = await state.get_state()
     if current_state is None:
+        print("State is None")
         await state.reset_state(with_data=True)
 
         if not await checkUserExists(
@@ -32,7 +33,9 @@ async def main_menu(
                     recovery_key=generate_key(
                         cb.from_user.id)) 
     elif current_state == CreatingNoteState.Saving:
+        print("state is Saving")
         state_data = await state.get_data()
+        print(state_data.get("title"))
         await insertNewNote(
                 session=session,
                 owner_id=await getIDbyTelegramID(

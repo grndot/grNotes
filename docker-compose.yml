@@ -2,14 +2,14 @@ version: '3.3'
 
 services:
   bot:
-    image: "${BOT_IMAGE_NAME:-tg_bot-image}"
-    container_name: "${BOT_CONTAINER_NAME:-tg_bot-container}"
+    image: "${BOT_IMAGE_NAME:-bot-image}"
+    container_name: "${BOT_CONTAINER_NAME:-bot-container}"
     stop_signal: SIGINT
     build:
       context: .
-    working_dir: "/usr/src/app/${BOT_NAME:-tg_bot}"
+    working_dir: "/usr/src/app/${BOT_NAME:-bot}"
     volumes:
-    - .:/usr/src/app/${BOT_NAME:-tg_bot}
+    - .:/usr/src/app/${BOT_NAME:-bot}
     command: python3 -m bot
     restart: always
     env_file:

@@ -48,10 +48,6 @@ async def check_recovery_code(
                 session=session,
                 recovery_key=msg.text,
                 new_recovery_key=generate_key(msg.from_user.id))
-        await updateOwnerID(
-                session=session,
-                old_id=1,
-                new_id=1)
         await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,
                 message_id=data.get("message_id"),

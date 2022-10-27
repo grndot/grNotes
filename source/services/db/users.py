@@ -1,25 +1,23 @@
 from sqlalchemy import insert, select, update
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.models.database import Users
 
 
 async def getIDbyTelegramID(
-        session,
-        telegram_id):
+        session: AsyncSession,
+        telegram_id) -> int:
     stmt = select(Users.ID).where(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
     answer = result.first()
-    if answer is None:
-        return
-    else:
-        print(f"{answer[0]} has got by {telegram_id=}")
-        return answer[0]
+    print(f"{answer[0]} has got by {telegram_id=}")
+    return answer[0]
 
 
 async def getIDbyRecoveryKey(
-        session,
-        recovery_key):
+        session: AsyncSession,
+        recovery_key) -> int:
     stmt = select(Users.ID).where(
             Users.RecoveryKey == recovery_key)
     result = await session.execute(stmt)
@@ -29,8 +27,8 @@ async def getIDbyRecoveryKey(
 
 
 async def checkUserExists(
-        session,
-        telegram_id):
+        session: AsyncSession,
+        telegram_id) -> bool:
     stmt = select(Users.TelegramID).where(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
@@ -43,8 +41,8 @@ async def checkUserExists(
 
 
 async def checkRecoveryKey(
-        session, 
-        key):
+        session: AsyncSession, 
+        key) -> bool:
     stmt = select(
             Users.TelegramID,
             Users.RecoveryKey).where(
@@ -59,7 +57,7 @@ async def checkRecoveryKey(
 
 
 async def insertNewUser(
-        session, 
+        session: AsyncSession, 
         telegram_id, 
         language_id,
         recovery_key):
@@ -73,9 +71,9 @@ async def insertNewUser(
 
 
 async def updateUserTelegramId(
-        session,
+        session: AsyncSession,
         recovery_key: str,
-        telegram_id: int):
+        telegram_id: int) -> None:
     stmt = update(Users).where(
             Users.RecoveryKey == recovery_key).values(
                     {Users.TelegramID: telegram_id})    
@@ -84,9 +82,9 @@ async def updateUserTelegramId(
 
 
 async def updateUserRecoveryKey(
-        session,
+        session: AsyncSession,
         recovery_key: str,
-        new_recovery_key: str):
+        new_recovery_key: str) -> None:
     stmt = update(Users).where(
             Users.RecoveryKey == recovery_key).values(
                     {Users.RecoveryKey: new_recovery_key})
