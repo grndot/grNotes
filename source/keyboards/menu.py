@@ -48,6 +48,12 @@ def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
             callback_data=pagination_cb.new(
                 key=key,
                 page=next_page))
+
+    plug_instead_of_note_button = InlineKeyboardButton(
+            text="Here could be your notes. Create it below! ( •͡˘ _•͡˘)ノ",
+            callback_data=pagination_cb.new(
+                    key=key,
+                    page="current_page"))
     settings_button = InlineKeyboardButton(
             text="Settings",
             callback_data="settings")
@@ -91,9 +97,12 @@ def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
     keyboard = InlineKeyboardMarkup(
             row_width=2)
     keyboard.row(create_note_button)
-    for button in notes_buttons:
-        keyboard.insert(button)
-    keyboard.row(*pages_buttons)
+    if len(notes_buttons) != 0:
+        for button in notes_buttons:
+            keyboard.insert(button)
+        keyboard.row(*pages_buttons)
+    else:
+        keyboard.row(plug_instead_of_note_button)
     keyboard.row(settings_button)
 
     return keyboard
