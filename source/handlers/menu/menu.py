@@ -18,22 +18,9 @@ async def main_menu(
         cb: types.CallbackQuery,
         state: FSMContext,
         session: AsyncSession):
+    await cb.answer()
     current_state = await state.get_state()
-    if current_state is None:
-        print("State is None")
-        await state.reset_state(with_data=True)
-
-        if not await checkUserExists(
-                session=session,
-                telegram_id=cb.from_user.id):
-            await insertNewUser(
-                    session=session,
-                    telegram_id=cb.from_user.id,
-                    language_id=1,
-                    recovery_key=generate_key(
-                        cb.from_user.id)) 
-    elif current_state == CreatingNoteState.Saving:
-        print("state is Saving")
+    if current_state == CreatingNoteState.Saving:
         state_data = await state.get_data()
         print(state_data.get("title"))
         await insertNewNote(
@@ -42,9 +29,17 @@ async def main_menu(
                     session=session,
                     telegram_id=cb.from_user.id),
                 title=state_data.get("title"),
-                text="")
-
-    await cb.answer()
+                text="Change it!")
+    if not await checkUserExists(
+            session=session,
+            telegram_id=cb.from_user.id):
+        await insertNewUser(
+                session=session,
+                telegram_id=cb.from_user.id,
+                language_id=1,
+                recovery_key=generate_key(
+                    cb.from_user.id)) 
+        
     await cb.message.edit_text(
             text="\n".join(main_menu_text),
             reply_markup=menu_kb(await getNotesTitleAndIDByOwnerID(

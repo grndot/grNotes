@@ -27,27 +27,29 @@ async def check_recovery_code(
     if await checkRecoveryKey(
             session, 
             msg.text):
+        new_id = await getIDbyTelegramID(
+                    session=session,
+                    telegram_id=msg.from_user.id)
+        old_id = await getIDbyRecoveryKey(
+                    session=session,
+                    recovery_key=msg.text)
         text = [
                 "OK!",
                 "",
                 "",
                 "Press button below."]
-        await updateOwnerID(
-                session=session,
-                old_id=await getIDbyRecoveryKey(
+        if new_id != old_id:
+            await updateOwnerID(
                     session=session,
-                    recovery_key=msg.text),
-                new_id=await getIDbyTelegramID(
+                    old_id=old_id,
+                    new_id=new_id)
+            await updateUserRecoveryKey(
                     session=session,
-                    telegram_id=msg.from_user.id))
-        await updateUserTelegramId(
-                session=session,
-                telegram_id=msg.from_user.id,
-                recovery_key=msg.text)
-        await updateUserRecoveryKey(
-                session=session,
-                recovery_key=msg.text,
-                new_recovery_key=generate_key(msg.from_user.id))
+                    recovery_key=msg.text,
+                    new_recovery_key=generate_key(msg.from_user.id))
+            text[2] = "Your key has been updated."
+        else:
+            text[2] = "Your key remains the same."
         await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,
                 message_id=data.get("message_id"),
