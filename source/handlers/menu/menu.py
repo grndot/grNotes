@@ -31,7 +31,7 @@ async def main_menu(
                 owner_id=await getIDbyTelegramID(
                     session=session,
                     telegram_id=cb.from_user.id),
-                title=state_data.get("title"),
+                title=str(state_data.get("title")),
                 text="Change it!")
     if not await checkUserExists(
             session=session,
