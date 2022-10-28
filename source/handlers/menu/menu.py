@@ -4,7 +4,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.keyboards.menu import menu_kb
 from source.misc.content import main_menu_text
-from source.services.db.notes import getNotesTitleAndIDByOwnerID, insertNewNote
+from source.services.db.notes import (
+        getNotesTitleAndIDByOwnerID, 
+        insertNewNote
+        )
 from source.services.db.users import (
         checkUserExists, 
         getIDbyTelegramID, 
@@ -46,7 +49,7 @@ async def main_menu(
                 session=session,
                 owner_id=await getIDbyTelegramID(
                     session=session,
-                    telegram_id=cb.message.from_user.id)
+                    telegram_id=cb.from_user.id)
                 )))
 
 
