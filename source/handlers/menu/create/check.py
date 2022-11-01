@@ -28,9 +28,8 @@ async def check_title_of_note(
                 ]]
     title = msg.text
     token = load_config().tg_bot.token
-    
+    await msg.delete()
     if len(title) <= 64:
-        await msg.delete()
         await Bot(token=token).edit_message_text(
                 chat_id=msg.chat.id,
                 message_id=data.get("main_menu_message_id"),
