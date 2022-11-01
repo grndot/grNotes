@@ -11,12 +11,13 @@ def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
     # Varialbles for keyboard page
     key = "notes"
     max_items_per_page = 10
+    last_page_condition = len(array) // max_items_per_page
     first_note_index = (page - 1) * max_items_per_page
     last_note_index = page * max_items_per_page
     current_page_text = f'<{page}>'
     first_page = 1
     first_page_text = '|← 1'
-    last_page = len(array) // max_items_per_page
+    last_page = last_page_condition if last_page_condition != 0 else 1 
     last_page_text = f'{last_page} →|'
     next_page = page + 1
     next_page_text = f'{next_page} →'
