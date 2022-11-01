@@ -71,7 +71,7 @@ def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
     # This is part of keyboard which contains buttons for notes
     notes_buttons = [
             InlineKeyboardButton(
-                text=note[0],
+                text=note.title,
                 callback_data=show_note.new(
                     note_id=note.id)) for note in sliced_array]
     
