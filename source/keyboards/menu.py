@@ -1,12 +1,14 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from aiogram.utils.callback_data import CallbackData
+from aiogram.utils.callback_data import CallbackData 
 
+
+# Callbacks
+pagination_cb = CallbackData("paginator", "key", "page")
+show_note = CallbackData("show_note", "note_id")
 
 def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
     
-    # Callbacks
-    pagination_cb = CallbackData("paginator", "key", "page")
-    show_note = CallbackData("show_note", "note_id")
+
     
     # Varialbles for keyboard page
     key = "notes"
