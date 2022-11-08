@@ -6,10 +6,9 @@ from aiogram.utils.callback_data import CallbackData
 pagination_cb = CallbackData("paginator", "key", "page")
 show_note = CallbackData("show_note", "note_id")
 
+    
 def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
-    
 
-    
     # Varialbles for keyboard page
     key = "notes"
     max_items_per_page = 10
@@ -70,14 +69,14 @@ def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
                 key=key,
                 page=previous_page))
 
-    # This is part of keyboard which contains buttons for notes
+    # This part of keyboard contains buttons for notes
     notes_buttons = [
             InlineKeyboardButton(
                 text=note.title,
                 callback_data=show_note.new(
                     note_id=note.id)) for note in sliced_array]
     
-    # This is part of keyboard which contain buttons for pages
+    # This part of keyboard contains buttons for pages
     pages_buttons = []
     pages_buttons.append(first_page_button)
     

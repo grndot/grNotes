@@ -11,6 +11,7 @@ from source.handlers.start.start import reg_start
 from source.handlers.start.recovery.check import reg_check_recovery_code
 from source.handlers.start.recovery.code import reg_get_recovery_code
 from source.handlers.menu.menu import reg_main_menu
+from source.handlers.menu.menu_pages import reg_main_menu_with_choosen_page
 from source.handlers.menu.create.check import reg_check_title_of_note 
 from source.handlers.menu.create.title import reg_create_note
 from source.middlewares.environment import EnvironmentMiddleware
@@ -35,6 +36,7 @@ def register_all_handlers(dp):
     reg_get_recovery_code(dp)
     reg_check_recovery_code(dp)
     reg_main_menu(dp)
+    reg_main_menu_with_choosen_page(dp)
     reg_create_note(dp)
     reg_check_title_of_note(dp)
 
