@@ -17,7 +17,7 @@ async def show_chosen_note(
             note_id=int(note_id))
     await cb.answer()
     await cb.message.edit_text(
-            text=note_text,
+            text=f"<code>{note_text}</code>",
             reply_markup=note_kb())
 
 
