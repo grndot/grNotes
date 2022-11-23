@@ -20,6 +20,17 @@ async def insertNewNote(
     return result.scalars()
 
 
+async def getNoteTextByNoteID(
+        session: AsyncSession,
+        note_id: int):
+    stmt = select(Notes.Text).where(
+            Notes.ID == note_id)
+    result = await session.execute(stmt)
+    print(result)
+    return result.first()
+    
+
+
 async def getNotesTitleAndIDByOwnerID(
         session: AsyncSession,
         owner_id: int):
