@@ -27,7 +27,7 @@ async def getNoteTextByNoteID(
             Notes.ID == note_id)
     result = await session.execute(stmt)
     print(result)
-    return result.first()
+    return result.first()[0]
     
 
 

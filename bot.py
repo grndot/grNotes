@@ -14,6 +14,7 @@ from source.handlers.menu.menu import reg_main_menu
 from source.handlers.menu.menu_pages import reg_main_menu_with_choosen_page
 from source.handlers.menu.create.check import reg_check_title_of_note 
 from source.handlers.menu.create.title import reg_create_note
+from source.handlers.menu.show_note import reg_show_note
 from source.middlewares.environment import EnvironmentMiddleware
 from source.middlewares.db import DatabaseMiddleware
 from source.services.db.session_pool import create_session_pool
@@ -39,7 +40,7 @@ def register_all_handlers(dp):
     reg_main_menu_with_choosen_page(dp)
     reg_create_note(dp)
     reg_check_title_of_note(dp)
-
+    reg_show_note(dp)
 
 
 async def main():
