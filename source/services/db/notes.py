@@ -31,21 +31,29 @@ async def getNoteTextByNoteID(
     
 
 
-async def getNotesTitleAndIDByOwnerID(
+async def getNotesDataByOwnerID(
         session: AsyncSession,
         owner_id: int):
  
     class Note:
-        def __init__(self, title: str, id_note: int) -> None:
+        def __init__(
+                self,
+                title: str,
+                id_note: int,
+                text: str) -> None:
     
             self.title = title
             self.id = id_note
+            self.text = text
 
-    stmt = select(Notes.Title, Notes.ID).where(
+    stmt = select(Notes.Title, Notes.ID, Notes.Text).where(
             Notes.OwnerID==owner_id)
     result = await session.execute(stmt)
     arrow = result.all()
-    answer = [Note(title=item[0], id_note=item[1]) for item in arrow]
+    answer = [Note(
+        title=item[0],
+        id_note=item[1],
+        text=item[2]) for item in arrow]
     print(f"{owner_id=} got Titles and IDs his notes")
     return answer
 
