@@ -7,6 +7,7 @@ from aiogram.contrib.fsm_storage.redis import RedisStorage2
 
 from source.config import load_config
 from source.filters.admin import AdminFilter
+from source.handlers.menu.del_note import reg_del_chosen_note
 from source.handlers.start.start import reg_start
 from source.handlers.start.recovery.check import reg_check_recovery_code
 from source.handlers.start.recovery.code import reg_get_recovery_code
@@ -41,6 +42,7 @@ def register_all_handlers(dp):
     reg_create_note(dp)
     reg_check_title_of_note(dp)
     reg_show_note(dp)
+    reg_del_chosen_note(dp)
 
 
 async def main():
