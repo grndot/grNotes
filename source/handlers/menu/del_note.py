@@ -30,3 +30,4 @@ def reg_del_chosen_note(
             del_chosen_note,
             text="del_note",
             state=NoteState.ID)
+

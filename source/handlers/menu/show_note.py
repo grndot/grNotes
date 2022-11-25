@@ -24,7 +24,8 @@ async def show_chosen_note(
     await state.set_data({
         "NoteID": note_id,
         "Title": title,
-        "Text": text})
+        "Text": text,
+        "MessageID": cb.message.message_id})
     await cb.answer()
     await cb.message.edit_text(
             text=f"<b>{title}:</b>\n\n<code>{text}</code>",
