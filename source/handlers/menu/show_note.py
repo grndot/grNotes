@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.keyboards.menu import show_note
 from source.keyboards.note import note_kb
-from source.services.db.notes import getNoteTextByNoteID
+from source.services.db.notes import getNoteTitleAndTextByNoteID
 from source.states.note import NoteState
 
 
@@ -15,14 +15,16 @@ async def show_chosen_note(
         state: FSMContext):
 
     note_id = callback_data.get("note_id")
-    note_text = await getNoteTextByNoteID(
+    note_data = await getNoteTitleAndTextByNoteID(
             session=session,
             note_id=int(note_id))
+    title = note_data.title
+    text = note_data.text
     await NoteState.ID.set()
     await state.set_data({"NoteID": note_id})
     await cb.answer()
     await cb.message.edit_text(
-            text=f"<code>{note_text}</code>",
+            text=f"<b>{title}:</b>\n\n<code>{text}</code>",
             reply_markup=note_kb())
 
 
