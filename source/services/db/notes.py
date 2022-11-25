@@ -21,7 +21,6 @@ async def getCountNotes(
                     Notes.OwnerID == owner_id)
     result = await session.execute(stmt)
     answer = result.first()
-    print(f"{owner_id=} got {answer=} for query getCountNotes")
     return answer[0]
 
 
@@ -39,8 +38,8 @@ async def getNotesTitleAndIDByOwnerID(
             Notes.OwnerID==owner_id)
     result = await session.execute(stmt)
     arrow = result.all()
-    answer = [Note(title=item[0], id_note=item[1]) for item in arrow]
-    print(f"{owner_id=} got Titles and IDs his notes")
+    answer = [
+        Note(title=item[0], id_note=item[1]) for item in arrow]
     return answer
 
 
@@ -76,7 +75,6 @@ async def insertNewNote(
             Text=text)
     result = await session.execute(stmt)
     await session.commit()
-    print(f"{owner_id=} inserted new note with {title=}")
     return result.scalars()
 
 
@@ -89,6 +87,14 @@ async def updateOwnerID(
                     {Notes.OwnerID: new_id})
     await session.execute(stmt)
     await session.commit()
-    print(f"Notes from {old_id=} has been provided for {new_id=}")
 
 
+async def updateTextByNoteID(
+        session: AsyncSession,
+        text: str,
+        note_id: int):
+    stmt = update(Notes).where(
+            Notes.ID == note_id).values(
+                    {Notes.Text: text})
+    await session.execute(stmt)
+    await session.commit()
