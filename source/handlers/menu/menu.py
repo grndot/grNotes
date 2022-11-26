@@ -23,11 +23,8 @@ async def main_menu(
         session: AsyncSession):
     await cb.answer()
     current_state = await state.get_state()
-    print(current_state)
-    print()
     if current_state == CreatingNoteState.Saving.state:
         state_data = await state.get_data()
-        print(state_data.get("title"))
         await insertNewNote(
                 session=session,
                 owner_id=await getIDbyTelegramID(

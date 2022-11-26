@@ -12,7 +12,6 @@ async def getIDbyTelegramID(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
     answer: Tuple[int] = result.first()
-    print(f"{answer} has got by {telegram_id=}")
     return answer[0]
 
 
@@ -23,7 +22,6 @@ async def getIDbyRecoveryKey(
             Users.RecoveryKey == recovery_key)
     result = await session.execute(stmt)
     answer: Tuple[int] = result.first()
-    print(f"{answer} has got by {recovery_key=}")
     return answer[0]
 
 
@@ -34,10 +32,8 @@ async def checkUserExists(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
     if result.first() is None:
-        print(f"User {telegram_id} is login")
         return False
     else:
-        print(f"User {telegram_id} is sing up")
         return True
 
 
@@ -50,7 +46,6 @@ async def checkRecoveryKey(
                     Users.RecoveryKey == key)
     result = await session.execute(stmt)
     status = result.first()
-    print(status)
     if status is None:
         return False
     else: 
