@@ -51,7 +51,7 @@ def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
                 page=next_page))
 
     plug_instead_of_note_button = InlineKeyboardButton(
-            text="Here could be your notes. Create it above! ( •͡˘ _•͡˘)ノ",
+            text="Here could be your notes. Create it below!" ,
             callback_data=pagination_cb.new(
                     key=key,
                     page="current_page"))
