@@ -3,7 +3,6 @@ from aiogram.dispatcher import FSMContext
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.keyboards.menu import menu_kb
-from source.misc.content import main_menu_text
 from source.services.db.notes import (
         getNotesTitleAndIDByOwnerID, 
         insertNewNote
@@ -43,7 +42,7 @@ async def main_menu(
                     cb.from_user.id)) 
         
     await cb.message.edit_text(
-            text="\n".join(main_menu_text),
+            text="Notes by grn.\n\n\nJust use it.",
             reply_markup=menu_kb(await getNotesTitleAndIDByOwnerID(
                 session=session,
                 owner_id=await getIDbyTelegramID(
