@@ -7,7 +7,7 @@ from source.models.database import Users
 
 async def getIDbyTelegramID(
         session: AsyncSession,
-        telegram_id) -> int:
+        telegram_id: int) -> int:
     stmt = select(Users.ID).where(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
@@ -17,7 +17,7 @@ async def getIDbyTelegramID(
 
 async def getIDbyRecoveryKey(
         session: AsyncSession,
-        recovery_key) -> int:
+        recovery_key: str) -> int:
     stmt = select(Users.ID).where(
             Users.RecoveryKey == recovery_key)
     result = await session.execute(stmt)
@@ -25,9 +25,19 @@ async def getIDbyRecoveryKey(
     return answer[0]
 
 
+async def getRecoveryKeyByTelegramID(
+        session: AsyncSession,
+        telegram_id: int) -> str:
+    stmt = select(Users.RecoveryKey).where(
+            Users.TelegramID == telegram_id)
+    result = await session.execute(stmt)
+    answer: Tuple[str] = result.first()
+    return answer[0]
+
+
 async def checkUserExists(
         session: AsyncSession,
-        telegram_id) -> bool:
+        telegram_id: int) -> bool:
     stmt = select(Users.TelegramID).where(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
@@ -39,7 +49,7 @@ async def checkUserExists(
 
 async def checkRecoveryKey(
         session: AsyncSession, 
-        key) -> bool:
+        key: str) -> bool:
     stmt = select(
             Users.TelegramID,
             Users.RecoveryKey).where(
@@ -54,9 +64,9 @@ async def checkRecoveryKey(
 
 async def insertNewUser(
         session: AsyncSession, 
-        telegram_id, 
-        language_id,
-        recovery_key):
+        telegram_id: int, 
+        language_id: int,
+        recovery_key: str):
     stmt = insert(Users).values(
             TelegramID=telegram_id,
             LanguageID=language_id,

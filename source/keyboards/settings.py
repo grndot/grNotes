@@ -17,13 +17,13 @@ def settings_kb() -> InlineKeyboardMarkup:
     delete_all_notes_button = InlineKeyboardButton(
             text="Delete All",
             callback_data="delete_all_notes")
-    keyboard = InlineKeyboardMarkup(row_width=3)
+    keyboard = InlineKeyboardMarkup(row_width=2)
    
     keyboard.row(
             language_button,
-            recovery_code_button,
-            delete_all_notes_button)
-    keyboard.insert(
+            recovery_code_button)
+    keyboard.row(delete_all_notes_button)
+    keyboard.row(
             back_button)
 
     return keyboard

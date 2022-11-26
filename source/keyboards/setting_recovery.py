@@ -8,7 +8,7 @@ def recovery_set_kb() -> InlineKeyboardMarkup:
             row_width=1,
             inline_keyboard=[
                     [InlineKeyboardButton(
-                        text="Reset Recovety Code",
+                        text="Reset Recovery Key",
                         callback_data="reset_recovery_code")],
                     [InlineKeyboardButton(
                         text="Back",
