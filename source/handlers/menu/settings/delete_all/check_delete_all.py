@@ -2,6 +2,7 @@ from aiogram import Dispatcher
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message
 from sqlalchemy.ext.asyncio import AsyncSession
+from source.keyboards.setting_delete import set_delete_kb
 from source.services.db.users import (
         checkRecoveryKey,
         delUserByTelegramID)
@@ -26,7 +27,9 @@ async def check_delete_all(
     else:   
         text = msg.text.split("\n")
         text[-1] += '(Incorrect code, try again or press "Back")'
-
+        await msg.edit_text(
+                text="\n".join(text),
+                reply_markup=set_delete_kb())
 
 def reg_check_delete_all(
         dp: Dispatcher):
