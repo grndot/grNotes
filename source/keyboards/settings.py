@@ -15,8 +15,8 @@ def settings_kb() -> InlineKeyboardMarkup:
             text="Recovery Code",
             callback_data="recovery_settings")
     delete_all_notes_button = InlineKeyboardButton(
-            text="Delete All",
-            callback_data="delete_all_notes")
+            text="Delete Account",
+            callback_data="delete_account")
     keyboard = InlineKeyboardMarkup(row_width=2)
    
     keyboard.row(

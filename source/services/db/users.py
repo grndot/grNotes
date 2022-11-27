@@ -1,8 +1,17 @@
 from typing import Tuple
-from sqlalchemy import insert, select, update
+from sqlalchemy import delete, insert, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.models.database import Users
+
+
+async def delUserByTelegramID(
+        session: AsyncSession,
+        telegram_id: int) -> None:
+    stmt = delete(Users).where(
+            Users.TelegramID == telegram_id)
+    await session.execute(stmt)
+    await session.commit()
 
 
 async def getIDbyTelegramID(

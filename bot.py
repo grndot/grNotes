@@ -10,6 +10,8 @@ from source.filters.admin import AdminFilter
 from source.handlers.menu.check_edit_note import reg_check_changes
 from source.handlers.menu.del_note import reg_del_chosen_note
 from source.handlers.menu.edit_note import reg_edit_chosen_note
+from source.handlers.menu.settings.delete_all.check_delete_all import reg_check_delete_all
+from source.handlers.menu.settings.delete_all.set_delete_all import reg_set_delete_all
 from source.handlers.menu.settings.settings_menu import reg_menu_settings
 from source.handlers.start.start import reg_start
 from source.handlers.start.recovery.check import reg_check_recovery_code
@@ -45,6 +47,8 @@ def register_all_handlers(dp):
     reg_main_menu(dp)
     reg_main_menu_with_choosen_page(dp)
     reg_menu_settings(dp)
+    reg_set_delete_all(dp)
+    reg_check_delete_all(dp)
     reg_set_recovery_code(dp)
     reg_create_note(dp)
     reg_check_title_of_note(dp)
@@ -52,6 +56,7 @@ def register_all_handlers(dp):
     reg_del_chosen_note(dp)
     reg_edit_chosen_note(dp)
     reg_check_changes(dp)
+
 
 
 async def main():
