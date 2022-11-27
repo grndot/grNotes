@@ -30,6 +30,6 @@ async def check_delete_all(
 
 def reg_check_delete_all(
         dp: Dispatcher):
-    dp.message_handler(
+    dp.register_message_handler(
             check_delete_all,
             state=DeleteState.Check)

@@ -33,7 +33,7 @@ async def set_delete_all(
 
 def reg_set_delete_all(
         dp: Dispatcher):
-    dp.callback_query_handler(
+    dp.register_callback_query_handler(
             set_delete_all,
             state="*",
             text="delete_account")
