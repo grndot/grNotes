@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from pathlib import Path
 
 from environs import Env
 from sqlalchemy.engine.url import URL
@@ -21,6 +22,15 @@ class DbConfig:
             password=self.password,
             database=self.database))
 
+
+@dataclass
+class Internationalization:
+    i18n_domain: str
+    base_dir: Path
+    locales_dir: Path
+
+
+
 @dataclass
 class TgBot:
     token: str
@@ -38,6 +48,7 @@ class Config:
     tg_bot: TgBot
     db: DbConfig
     misc: Miscellaneous
+    i18n: Internationalization
 
 
 def load_config(path: str = None):
@@ -57,5 +68,9 @@ def load_config(path: str = None):
             database=env.str('DB_NAME'),
             port=env.int("DB_PORT")
         ),
-        misc=Miscellaneous()
+        misc=Miscellaneous(),
+        i18n=Internationalization(
+            i18n_domain=env.str('I18N_DOMAIN'),
+            base_dir=Path('bot.py').parent,
+            locales_dir=Path('bot.py').parent / 'locales')
     )
