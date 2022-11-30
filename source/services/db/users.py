@@ -1,4 +1,3 @@
-from typing import Tuple
 from sqlalchemy import delete, insert, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -20,7 +19,7 @@ async def getIDbyTelegramID(
     stmt = select(Users.ID).where(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
-    answer: Tuple[int] = result.first()
+    answer: tuple[int] = result.first()
     return answer[0]
 
 
@@ -30,7 +29,18 @@ async def getIDbyRecoveryKey(
     stmt = select(Users.ID).where(
             Users.RecoveryKey == recovery_key)
     result = await session.execute(stmt)
-    answer: Tuple[int] = result.first()
+    answer: tuple[int] = result.first()
+    return answer[0]
+
+
+
+async def getLanguageIDByTelegramID(
+        session: AsyncSession,
+        telegram_id: int):
+    stmt = select(Users.LanguageID).where(
+            Users.TelegramID == telegram_id)
+    result = await session.execute(stmt)
+    answer: tuple[int] = result.first()
     return answer[0]
 
 
@@ -40,7 +50,7 @@ async def getRecoveryKeyByTelegramID(
     stmt = select(Users.RecoveryKey).where(
             Users.TelegramID == telegram_id)
     result = await session.execute(stmt)
-    answer: Tuple[str] = result.first()
+    answer: tuple[str] = result.first()
     return answer[0]
 
 
