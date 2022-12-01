@@ -43,6 +43,9 @@ class Languages(Base):
             nullable=False,
             unique=True)
 
+    I18Name = Column(
+            VARCHAR(6))
+
 
 class Users(Base):
     __tablename__ = "Users"
