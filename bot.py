@@ -25,15 +25,19 @@ from source.handlers.menu.settings.recovery.set_recovery import reg_set_recovery
 
 from source.middlewares.environment import EnvironmentMiddleware
 from source.middlewares.db import DatabaseMiddleware
+from source.middlewares.i18n import LanguageMiddleware
 from source.services.db.session_pool import create_session_pool
 
 
 logger = logging.getLogger(__name__)
 
 
-def register_all_middlewares(dp, config, session_pool):
+def register_all_middlewares(dp, domain, locales_dir, config, session_pool):
     dp.setup_middleware(EnvironmentMiddleware(config=config))
     dp.setup_middleware(DatabaseMiddleware(session_pool=session_pool))
+    dp.setup_middleware(LanguageMiddleware(
+        domain=domain,
+        path=locales_dir))
 
 
 def register_all_filters(dp):
@@ -66,7 +70,9 @@ async def main():
     )
     logger.info("Starting bot")
     config = load_config(".env")
-
+    
+    domain = config.i18n.i18n_domain
+    locales_dir = config.i18n.locales_dir
     session_pool = create_session_pool(config.db)
     storage = RedisStorage2() if config.tg_bot.use_redis else MemoryStorage()
     bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
@@ -74,7 +80,7 @@ async def main():
 
     bot['config'] = config
 
-    register_all_middlewares(dp, config, session_pool)
+    register_all_middlewares(dp, domain, locales_dir, config, session_pool)
     register_all_filters(dp)
     register_all_handlers(dp)
 
