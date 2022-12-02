@@ -4,6 +4,7 @@ from aiogram import types
 from aiogram.contrib.middlewares.i18n import (
         I18nMiddleware, 
         Locale)
+from source.config import load_config
 
 from source.services.db.langugaes import getI18NameByID
 from source.services.db.users import getLanguageIDByTelegramID
@@ -30,3 +31,8 @@ class LanguageMiddleware(I18nMiddleware):
                 language_id=db_language_id)
             return db_I18Name
         return self.default
+
+
+_ = LanguageMiddleware(
+        domain=load_config().i18n.i18n_domain,
+        path=load_config().i18n.locales_dir)
