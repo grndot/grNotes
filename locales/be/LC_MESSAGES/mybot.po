@@ -25,6 +25,7 @@ msgstr ""
 msgid "Notes by grn."
 msgstr "Нататкі ад grn."
 
+
 #: source/keyboards/start.py:11
 msgid "Back"
 msgstr "Назад"
@@ -80,3 +81,27 @@ msgstr "Добра"
 #: source/keyboards/note.py:14
 msgid "Back"
 msgstr "Назад"
+
+#: source/keyboards/menu.py:32
+msgid "Create note"
+msgstr "Стварыць нататку"
+
+#: source/keyboards/menu.py:56
+msgid "Here could be your notes. Create it below!"
+msgstr "Тутай маглі быць тваі нататкі. Ствары іх ніжей!"
+
+#: source/keyboards/menu.py:61
+msgid "Settings & FAQ"
+msgstr "Налады і Адказы"
+
+#: source/keyboards/creating.py:9
+msgid "Save"
+msgstr "Захаваць"
+
+#: source/keyboards/creating.py:9
+msgid "Cancel"
+msgstr "Адмяніць"
+
+#: source/keyboards/note.py:
+msgid ""
+msgstr ""
