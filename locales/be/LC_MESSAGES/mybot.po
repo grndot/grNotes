@@ -19,3 +19,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
+
+
+#: source/handlers/start/start.py:12
+msgid "Notes by grn."
+msgstr "Нататкі ад grn."
+
+#: source/keyboards/start.py:11
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/start.py:15
+msgid "Continue"
+msgstr "Працягнуць"
+
+#: source/keyboards/start.py:19
+msgid "Recovery"
+msgstr "Аднавіць"
+
+#: source/keyboards/settings.py:11
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/settings.py:14
+msgid "Languages"
+msgstr "Мовы"
+
+#: source/keyboards/settings.py:17
+msgid "Recovery Code"
+msgstr "Код аднаўлення"
+
+#: source/keyboards/settings.py:20
+msgid "Delete Account"
+msgstr "Выдаліць рахунак"
+
+#: source/keyboards/setting_recovery.py:13
+msgid "Reset Recovery Key"
+msgstr "Скінуць ключ аднаўлення"
+
+#: source/keyboards/setting_recovery.py:16
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/setting_delete.py:9
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/note.py:8
+msgid "Edit"
+msgstr "Рэгадаваць"
+
+#: source/keyboards/note.py:11
+msgid "Delete"
+msgstr "Выдаліць"
+
+#: source/keyboards/note.py:14
+msgid "Ok"
+msgstr "Добра"
+
+#: source/keyboards/note.py:14
+msgid "Back"
+msgstr "Назад"

@@ -2,20 +2,22 @@ from aiogram.types import (
         InlineKeyboardButton,
         InlineKeyboardMarkup)
 
+from source.middlewares.i18n import get_text
+
 
 def settings_kb() -> InlineKeyboardMarkup:
 
     back_button = InlineKeyboardButton(
-            text="Back",
+            text=get_text("Back"),
             callback_data="main_menu")
     language_button = InlineKeyboardButton(
-            text="Languages",
+            text=get_text("Languages"),
             callback_data="language_settings")
     recovery_code_button = InlineKeyboardButton(
-            text="Recovery Code",
+            text=get_text("Recovery Code"),
             callback_data="recovery_settings")
     delete_all_notes_button = InlineKeyboardButton(
-            text="Delete Account",
+            text=get_text("Delete Account"),
             callback_data="delete_account")
     keyboard = InlineKeyboardMarkup(row_width=2)
    

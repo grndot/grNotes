@@ -2,7 +2,7 @@ from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 
 from source.keyboards.start import start_kb
-
+from source.middlewares.i18n import get_text
 
 
 async def start(
@@ -16,14 +16,14 @@ async def start(
     if isinstance(instance, types.Message):
         await instance.delete()
         await instance.answer(
-                text=text,
+                text=get_text(text),
                 reply_markup=start_kb())
     
     if isinstance(instance, types.CallbackQuery):
 
         await instance.answer()
         await instance.message.edit_text(
-                text=text,
+                text=get_text(text),
                 reply_markup=start_kb())
 
 

@@ -1,6 +1,8 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.callback_data import CallbackData 
 
+from source.middlewares.i18n import get_text
+
 
 # Callbacks
 pagination_cb = CallbackData("paginator", "key", "page")
@@ -27,7 +29,7 @@ def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
     
     # Buttons 
     create_note_button = InlineKeyboardButton(
-            text="Create note",
+            text=get_text("Create note"),
             callback_data="create")
     current_page_button =InlineKeyboardButton(
                 text=current_page_text,
@@ -51,12 +53,12 @@ def menu_kb(array, page: int = 1) -> InlineKeyboardMarkup:
                 page=next_page))
 
     plug_instead_of_note_button = InlineKeyboardButton(
-            text="Here could be your notes. Create it below!" ,
+            text=get_text("Here could be your notes. Create it below!"),
             callback_data=pagination_cb.new(
                     key=key,
                     page="current_page"))
     settings_button = InlineKeyboardButton(
-            text="Settings & FAQ",
+            text=get_text("Settings & FAQ"),
             callback_data="settings")
     stub_instead_of_button = InlineKeyboardButton(
             text=".",

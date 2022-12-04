@@ -33,6 +33,6 @@ class LanguageMiddleware(I18nMiddleware):
         return self.default
 
 
-_ = LanguageMiddleware(
+get_text = LanguageMiddleware(
         domain=load_config().i18n.i18n_domain,
-        path=load_config().i18n.locales_dir)
+        path=load_config().i18n.locales_dir).gettext
