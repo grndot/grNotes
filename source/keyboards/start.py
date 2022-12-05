@@ -11,12 +11,10 @@ def start_kb(
                             text=get_text("Back"),
                             callback_data="start"
                             )
-    
     menu_button = InlineKeyboardButton(
                         text=get_text("Continue"),
                         callback_data="main_menu"
                         )
-    
     recovery_button = InlineKeyboardButton(
                         text=get_text("Recovery"),
                         callback_data="recovery"

@@ -1,8 +1,9 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 from sqlalchemy.ext.asyncio import AsyncSession
-from source.keyboards.note import note_kb
 
+from source.keyboards.note import note_kb
+from source.middlewares.i18n import get_text
 from source.services.db.notes import deleteNote
 from source.states.note import NoteState
 
@@ -20,7 +21,7 @@ async def del_chosen_note(
             session=session,
             note_id=int(note_id))
     await cb.message.edit_text(
-            text=f"{title} has been deleted.",
+            text=get_text("{t} has been deleted.").format(t=title),
             reply_markup=note_kb(del_status=True))
 
 

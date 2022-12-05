@@ -2,6 +2,7 @@ from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 
 from source.keyboards.start import start_kb
+from source.middlewares.i18n import get_text
 from source.states.coderecovery import CodeRecoveryState
 
 
@@ -9,7 +10,7 @@ async def get_recovery_code(
         cb: types.CallbackQuery,
         state: FSMContext):
     await cb.message.edit_text(
-            text="Input your recovery code",
+            text=get_text("Input your recovery code"),
             reply_markup=start_kb(is_back=True))
     await CodeRecoveryState.Input.set()
     await state.set_data({"message_id": cb.message.message_id})

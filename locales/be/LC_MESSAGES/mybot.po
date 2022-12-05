@@ -25,6 +25,61 @@ msgstr ""
 msgid "Notes by grn."
 msgstr "Нататкі ад grn."
 
+#: source/handlers/start/recovery/code.py:13
+msgid "Input your recovery code"
+msgstr "Увядзіце свой код аднаўлення"
+
+#: source/handlers/start/recovery/check.py:26
+msgid "OK!"
+msgstr "Добра!"
+
+#: source/handlers/start/recovery/check.py:29
+msgid "Press button below."
+msgstr "Націсні кнопку ніжэй."
+
+#: source/handlers/start/recovery/check.py:51
+msgid "Your code nas been updated."
+msgstr "Твой код быў абноўлены."
+
+#: source/handlers/start/recovery/check.py:53
+msgid "Your code nas been updated."
+msgstr "Твой код застаецца тым ж самым."
+
+#: source/handlers/start/recovery/check.py:58
+msgid "Your code isn't correct!"
+msgstr "Твой код няправільны!"
+
+#: source/handlers/start/recovery/check.py:59
+msgid "Try again!"
+msgstr "Спрабуй яшчэ раз!"
+
+#: source/handlers/menu/menu.py:34
+msgid "Change it!"
+msgstr "Змяні гэта!"
+
+#: source/handlers/menu/edit_note.py:17
+msgid "<b>{t}</b>: (Edit-mode)"
+msgstr "<b>{t}</b>: (Рэжым рэгадавання)"
+
+#: source/handlers/menu/edit_note.py:18
+msgid "(Type /cancel for canceling changes)"
+msgstr "(Напішы /cancel для адмовы змян)"
+
+#: source/handlers/menu/del_note.py:24
+msgid "{t} has been deleted."
+msgstr "Нататка з назвай {t} была выдалена."
+
+#: source/handlers/menu/menu.py:46
+msgid "Notes by grn.\n\n\nJust use it."
+msgstr "Нататкі ад grn.\n\n\nПроста ўжывай."
+
+#: source/handlers/menu/check_edit_note.py:34
+msgid " (Saved)"
+msgstr " (Захавано)"
+
+#: source/handlers/menu/create.py:14
+msgid "Create name of new note\n\n\n(Max. lenght is 64 symbols!)"
+msgstr "Напішы назву новай нататкі\n\n\n(Макс. даўжыня - 64 знакі!)"
 
 #: source/keyboards/start.py:11
 msgid "Back"
@@ -102,6 +157,3 @@ msgstr "Захаваць"
 msgid "Cancel"
 msgstr "Адмяніць"
 
-#: source/keyboards/note.py:
-msgid ""
-msgstr ""

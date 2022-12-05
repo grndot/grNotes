@@ -4,6 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from source.config import load_config
 
 from source.keyboards.start import start_kb
+from source.middlewares.i18n import get_text
 from source.services.db.notes import updateOwnerID
 from source.services.db.users import (
     checkRecoveryKey,
@@ -22,10 +23,10 @@ async def check_recovery_code(
     data = await state.get_data()
     inline_keyboard = start_kb(is_menu=True)
     text = [
-        "OK!",
+        get_text("OK!"),
         "",
         "",
-        "Press button below."]
+        get_text("Press button below.")]
     token = load_config().tg_bot.token
     await msg.delete()
 
@@ -47,15 +48,15 @@ async def check_recovery_code(
                     session=session,
                     recovery_key=msg.text,
                     new_recovery_key=generate_key(msg.from_user.id))
-            text[2] = "Your key has been updated."
+            text[2] = get_text("Your code has been updated.")
         else:
-            text[2] = "Your key remains the same."
+            text[2] = get_text("Your code remains the same.")
         await state.reset_state(with_data=True)
       
     else:  
         inline_keyboard = start_kb(is_back=True)
-        text[0] = "Your code isn't correct!"
-        text[-1] = "Try again or get back!"
+        text[0] = get_text("Your code isn't correct!")
+        text[-1] = get_text("Try again!")
     
     await Bot(token=token).edit_message_text(
         chat_id=msg.chat.id,

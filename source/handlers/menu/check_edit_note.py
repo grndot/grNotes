@@ -1,10 +1,11 @@
 from aiogram import Bot, types, Dispatcher
 from aiogram.dispatcher import FSMContext
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from source.config import load_config
+from source.middlewares.i18n import get_text
 from source.keyboards.note import note_kb
 from source.services.db.notes import updateTextByNoteID
-
 from source.states.note import NoteState
 
 
@@ -30,7 +31,7 @@ async def check_changes(
         output_markup = note_kb()
     else: 
         output_markup = note_kb(True)
-        output_text[0] += ' (Saved)'
+        output_text[0] += get_text(' (Saved)')
         output_text[-1] = msg.text
         await updateTextByNoteID(
                 session=session,

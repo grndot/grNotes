@@ -1,6 +1,7 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 
+from source.middlewares.i18n import get_text
 from source.states.note import NoteState
 
 
@@ -13,11 +14,11 @@ async def edit_chosen_note(
     text = state_data.get("Text")
     
     output = [
-            f"<b>{title}</b>: (Edit-mode)",
-            "(Type /cancel for canceling changes)",
+            get_text("<b>{t}</b>: (Edit-mode)").format(t=title),
+            get_text("(Type /cancel for canceling changes)"),
             "",
             "",
-            f"<code>{text}</code>"]
+            "<code>{t}</code>".format(t=text)]
 
     await cb.answer()
     await cb.message.edit_text(
