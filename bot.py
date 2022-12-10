@@ -16,6 +16,7 @@ from source.handlers.menu.settings.languages.set_lang import reg_update_lang
 from source.handlers.menu.settings.languages.set_lang_pages import reg_update_lang_with_chosen_page
 from source.handlers.menu.settings.recovery.set_recovery import reg_set_recovery_code
 from source.handlers.menu.settings.settings_menu import reg_menu_settings
+from source.handlers.menu.settings.confrim_language import reg_menu_setting_after_updating_language
 from source.handlers.start.start import reg_start
 from source.handlers.start.recovery.check import reg_check_recovery_code
 from source.handlers.start.recovery.code import reg_get_recovery_code
@@ -55,6 +56,7 @@ def register_all_handlers(dp):
     reg_set_delete_all(dp)
     reg_check_delete_all(dp)
     reg_menu_settings(dp)
+    reg_menu_setting_after_updating_language(dp)
     reg_set_recovery_code(dp)
     reg_create_note(dp)
     reg_check_title_of_note(dp)

@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from source.models.database import Languages
 
 
@@ -11,17 +12,21 @@ async def getAllLanguageData(
     class Language:
         ID: int
         HumanName: str
-        LocaleName: str
+        I18Name: str
 
-    stmt = select(Languages)
+    stmt = select(
+            Languages.ID, 
+            Languages.Name,
+            Languages.I18Name)
     result = await session.execute(stmt)
     arrow = result.all()
-    responce = tuple(
+    print("\n",arrow,"\n")
+    response = tuple(
             Language(
                 ID=lang[0],
                 HumanName=lang[1],
-                LocaleName=lang[2]) for lang in arrow)
-    return responce
+                I18Name=lang[2]) for lang in arrow)
+    return response
 
 
 async def getI18NameByID(
