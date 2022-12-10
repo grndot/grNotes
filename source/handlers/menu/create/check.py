@@ -1,8 +1,9 @@
 from aiogram import types, Bot, Dispatcher
 from aiogram.dispatcher import FSMContext
+
 from source.config import load_config
 from source.keyboards.creating import create_new_note_keyboard
-
+from source.middlewares.i18n import get_text
 from source.states.createnote import CreatingNoteState
 
 
@@ -14,17 +15,17 @@ async def check_title_of_note(
     text = [
             # text[0] - for True
             [
-                f'<code>{msg.text}</code> is a good title for note!',
+                get_text('<code>{txt}</code> is a good title for note!'.format(txt=msg.text)),
                 '',
                 '',
-                'Press "Save" button to continue',
+                get_text("Press <b>Save</b> button to continue"),
                 ],
             # text[1] - for False
             [
-                'Lenght of title cannot be more than 64 symobls!',
+                get_text('Lenght of title cannot be more than 64 symobls!'),
                 '',
                 '',
-                'Try again...'
+                get_text('Try again...')
                 ]]
     title = msg.text
     token = load_config().tg_bot.token

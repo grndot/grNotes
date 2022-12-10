@@ -2,6 +2,7 @@ from aiogram import Dispatcher
 from aiogram.dispatcher import FSMContext
 from aiogram.types import CallbackQuery
 
+from source.middlewares.i18n import get_text
 from source.keyboards.settings import settings_kb
 
 
@@ -11,7 +12,7 @@ async def menu_settings(
     await state.reset_state(with_data=True)
     await cb.answer()
     await cb.message.edit_text(
-            text="Notes by grn.\n\n\nSettings.",
+            text=get_text("Notes by grn.\n\n\nSettings."),
             reply_markup=settings_kb())
 
 

@@ -1,8 +1,9 @@
 from aiogram import Dispatcher
 from aiogram.dispatcher import FSMContext
 from aiogram.types import CallbackQuery
-from source.keyboards.setting_delete import set_delete_kb
 
+from source.keyboards.setting_delete import set_delete_kb
+from source.middlewares.i18n import get_text
 from source.states.deleteall import DeleteState
 
 
@@ -11,11 +12,11 @@ async def set_delete_all(
         state: FSMContext):
     
     text = [
-        '<b>Do you really want to delete grnNotes account?</b>',
-        '<b>This acgtion cannot be changed!</b>',
+        get_text('<b>Do you really want to delete grnNotes account?</b>'),
+        get_text('<b>This action cannot be canceled!</b>'),
         '',
         '',
-        'Enter your recovery code for continue:']
+        get_text('Enter your recovery code for continue:')]
 
     await cb.answer()
     await DeleteState.Check.set()

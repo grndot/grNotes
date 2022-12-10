@@ -3,6 +3,7 @@ from aiogram.types import CallbackQuery
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from source.keyboards.setting_recovery import recovery_set_kb
+from source.middlewares.i18n import get_text
 from source.services.db.users import (
         getRecoveryKeyByTelegramID, 
         updateUserRecoveryKey)
@@ -26,11 +27,11 @@ async def set_recovery_code(
         recovery_key = new_recovery_key
 
     text = [
-            f'<b>Your recovery key:</b> <code>{recovery_key}</code>',
+            get_text('<b>Your recovery key:</b> <code>{rk}</code>').format(rk=recovery_key),
             '',
             '',
             '',
-            'The recovery key is needed to restore access to notes from another Telegram account of to delete an account.']
+            get_text('The recovery key is needed to restore access to notes from another Telegram account of to delete an account.')]
 
     await cb.message.edit_text(
             text="\n".join(text),

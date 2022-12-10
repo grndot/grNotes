@@ -77,9 +77,53 @@ msgstr "Нататкі ад grn.\n\n\nПроста ўжывай."
 msgid " (Saved)"
 msgstr " (Захавано)"
 
-#: source/handlers/menu/create.py:14
+#: source/handlers/menu/create/title.py:14
 msgid "Create name of new note\n\n\n(Max. lenght is 64 symbols!)"
 msgstr "Напішы назву новай нататкі\n\n\n(Макс. даўжыня - 64 знакі!)"
+
+#: source/handlers/menu/create/check.py:18
+msgid "<code>{txt}</code> is a good title for note!"
+msgstr "<code>{txt}</code> гэта добрая назва для нататкі!"
+
+#: source/handlers/menu/create/check.py:21
+msgid "Press <b>Save</b> button to continue"
+msgstr "Натісні <b>Save</b> каб працягнуць"
+
+#: source/handlers/menu/create/check.py:25
+msgid "Lenght of title cannot be more than 64 symobls!"
+msgstr "Даўжыня назвы не можа быць больш чым 64 сымбала!"
+
+#: source/handlers/menu/create/check.py:28
+msgid "Try again..."
+msgstr "Спрабуй яшчэ раз..."
+
+#: source/handlers/menu/settings/settings_menu.py:15
+msgid "Notes by grn.\n\n\nSettings."
+msgstr "Нататкі ад grn.\n\n\nНалады."
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:15
+msgid "<b>Do you really want to delete grnNotes account?</b>"
+msgstr "<b>Ты напраўда хочаш выдаліць grnNotes акаунт?</b>"
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:16
+msgid "<b>This action cannot be canceled!</b>"
+msgstr "<b>Гэта дзеянне нельга адменіць!</b>"
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:19
+msgid "Enter your recovery code for continue:"
+msgstr "Увядзіце свой код аднаўлення каб пряцягнуць:"
+
+#: source/handlers/menu/settings/delete_all/check_delete_all.py:30
+msgid "(Incorrect code, try again or press <b>Back</b>)"
+msgstr "(Няправільны код, спрабуй яшчэ раз або націсні <b>Назад</b>)"
+
+#: source/handlers/menu/settings/recovery/set_recovery.py:30
+msgid "<b>Your recovery key:</b> <code>{rk}</code>"
+msgstr "<b>Твой ключ аднаўлення:</b> <code>{rk}</code>"
+
+#: source/handlers/menu/settings/recovery/set_recovery.py:34
+msgid "The recovery key is needed to restore access to notes from another Telegram account of to delete an account."
+msgstr "Ключ аднаўлення патрэбны для аднаўлення доступу да нататак з іншага Telegram акаўнта або для выдалення акаўнта."
 
 #: source/keyboards/start.py:11
 msgid "Back"

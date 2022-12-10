@@ -15,5 +15,5 @@ echo "
 msgid "${msgid}"
 msgstr "${msgstr}"
 
-" >> filename
+" >> ${filename}
 
