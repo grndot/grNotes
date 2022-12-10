@@ -95,6 +95,17 @@ async def insertNewUser(
     return result.scalars()
 
 
+async def updateUserLanguageIDByUserID(
+        session: AsyncSession,
+        language_id,
+        user_id: int) -> None:
+    stmt = update(Users).where(
+            Users.ID == user_id).values(
+                    {Users.LanguageID: language_id})
+    await session.execute(stmt)
+    await session.commit()
+
+
 async def updateUserTelegramId(
         session: AsyncSession,
         recovery_key: str,
