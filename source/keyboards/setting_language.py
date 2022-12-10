@@ -6,7 +6,7 @@ from source.middlewares.i18n import get_text
 
 
 # Callbacks
-choose_lang = CallbackData("lang", "db_id")
+choose_lang = CallbackData("choose_lang", "db_id")
 
 
 def language_kb(array: tuple, page: int = 1) -> InlineKeyboardMarkup:
