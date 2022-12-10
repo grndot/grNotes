@@ -16,7 +16,7 @@ async def menu_setting_after_updating_language(
         callback_data: dict,
         session: AsyncSession):
 
-    lang_id = callback_data.get("db_id")
+    lang_id = int(callback_data.get("db_id"))
     user_id = await getIDbyTelegramID(
             session=session,
             telegram_id=cb.from_user.id)

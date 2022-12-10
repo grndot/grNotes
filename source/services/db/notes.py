@@ -38,9 +38,9 @@ async def getNotesTitleAndIDByOwnerID(
             Notes.OwnerID==owner_id)
     result = await session.execute(stmt)
     arrow = result.all()
-    answer = [
+    response = [
         Note(title=item[0], id_note=item[1]) for item in arrow]
-    return answer
+    return response
 
 
 async def getNoteTitleAndTextByNoteID(
