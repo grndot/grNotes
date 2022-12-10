@@ -20,7 +20,6 @@ async def getAllLanguageData(
             Languages.I18Name)
     result = await session.execute(stmt)
     arrow = result.all()
-    print("\n",arrow,"\n")
     response = tuple(
             Language(
                 ID=lang[0],
