@@ -10,20 +10,6 @@ from source.services.db.users import getLanguageIDByTelegramID
 
 class LanguageMiddleware(I18nMiddleware):
 
-    def __init__(
-            self, 
-            domain, 
-            path=load_config().i18n.locales_dir, 
-            default='en'):
-        super().__init__(domain, path, default)
-        
-        self.domain = domain       
-        self.path = path
-        self.default = default
-
-        self.locales = self.find_locales()
-
-
     async def get_user_locale(
             self,
             action,
@@ -31,7 +17,7 @@ class LanguageMiddleware(I18nMiddleware):
         print("DEBUG!!!\nGET_USER_LOCALE\n\n")
         user: Optional[types.User] = types.User.get_current()
         locale: Optional[Locale] = user.locale if user else None
-        print(f"DEBUG!!!\n{self.locales}\n\n")
+        print(f"DEBUG!!!\n{self.locales=}\n\n")
         if locale and locale.language in self.locales:
             print("DEBUG!!!\nIF CONDITION\n\n")
             *_, data = args
