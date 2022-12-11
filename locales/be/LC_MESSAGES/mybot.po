@@ -125,6 +125,10 @@ msgstr "<b>Твой ключ аднаўлення:</b> <code>{rk}</code>"
 msgid "The recovery key is needed to restore access to notes from another Telegram account of to delete an account."
 msgstr "Ключ аднаўлення патрэбны для аднаўлення доступу да нататак з іншага Telegram акаўнта або для выдалення акаўнта."
 
+#: source/handlers/menu/settings/languages/set_lang.py:16
+msgid "Choose your language:"
+msgstr "Выберы сваю мову:"
+
 #: source/keyboards/start.py:11
 msgid "Back"
 msgstr "Назад"
@@ -152,6 +156,30 @@ msgstr "Код аднаўлення"
 #: source/keyboards/settings.py:20
 msgid "Delete Account"
 msgstr "Выдаліць рахунак"
+
+#: source/keyboards/setting_language:30
+msgid "English"
+msgstr "Ангельская"
+
+#: source/keyboards/setting_language:30
+msgid "Polish"
+msgstr "Польская"
+
+#: source/keyboards/setting_language:30
+msgid "Ukranian"
+msgstr "Украінская"
+
+#: source/keyboards/setting_language:30
+msgid "Belarussian"
+msgstr "Беларуская"
+
+#: source/keyboards/setting_language:30
+msgid "Czech"
+msgstr "Чэшская"
+
+#: source/keyboards/setting_language:30
+msgid "Deusch"
+msgstr "Нямецкая"
 
 #: source/keyboards/setting_recovery.py:13
 msgid "Reset Recovery Key"
