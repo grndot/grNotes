@@ -14,21 +14,19 @@ class LanguageMiddleware(I18nMiddleware):
             self,
             action,
             args):
-        print("DEBUG!!!\nGET_USER_LOCALE\n\n")
+        
         user: Optional[types.User] = types.User.get_current()
         locale: Optional[Locale] = user.locale if user else None
-        print(f"DEBUG!!!\n{self.locales=}\n\n")
+        self.reload()
+        
         if locale and locale.language in self.locales:
-            print("DEBUG!!!\nIF CONDITION\n\n")
             *_, data = args
             session = data['session']
-            print("DEBUG!!!\nGOT SESSION\n\n")
             language = await getI18NameByID(
                     session=session,
                     language_id=await getLanguageIDByTelegramID(
                         session=session,
                         telegram_id=user.id))
-            print("DEBUG!!!\nDID LANGUAGE FUNCS\n\n")
             return language
         return self.default
 

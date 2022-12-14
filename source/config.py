@@ -71,7 +71,7 @@ def load_config(path: str = None):
         i18n=Internationalization(
             i18n_domain=env.str('I18N_DOMAIN'),
             base_dir=Path('bot.py').parent,
-            locales_dir=Path('bot.py').parent / "locales" 
+            locales_dir=Path('locales') 
             )
     )
 
