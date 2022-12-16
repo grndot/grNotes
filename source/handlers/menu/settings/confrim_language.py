@@ -5,6 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from source.keyboards.settings import settings_kb
 from source.keyboards.setting_language import choose_lang
 from source.middlewares.i18n import get_text
+from source.services.db.langugaes import getI18NameByID
 from source.services.db.users import (
         getIDbyTelegramID, 
         updateUserLanguageIDByUserID
@@ -27,7 +28,11 @@ async def menu_setting_after_updating_language(
             user_id=user_id)
     await cb.answer()
     await cb.message.edit_text(
-            text=get_text("Notes by grn.\n\n\nSettings."),
+            text=get_text(
+                "Notes by grn.\n\n\nSettings.",
+                locale= await getI18NameByID(
+                    session=session,
+                    language_id=lang_id)),
             reply_markup=settings_kb())
 
 
