@@ -21,11 +21,11 @@ async def menu_setting_after_updating_language(
             session=session,
             telegram_id=cb.from_user.id)
     
-    await cb.answer()
     await updateUserLanguageIDByUserID(
             session=session,
             language_id=lang_id,
             user_id=user_id)
+    await cb.answer()
     await cb.message.edit_text(
             text=get_text("Notes by grn.\n\n\nSettings."),
             reply_markup=settings_kb())
