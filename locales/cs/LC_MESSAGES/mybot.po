@@ -18,3 +18,212 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
+
+#: source/handlers/start/start.py:12
+msgid "Notes by grn."
+msgstr "Poznámky z grn."
+
+#: source/handlers/start/recovery/code.py:13
+msgid "Input your recovery code"
+msgstr "Zadejte kód pro obnovení"
+
+#: source/handlers/start/recovery/check.py:26
+msgid "OK!"
+msgstr "Dobré!"
+
+#: source/handlers/start/recovery/check.py:29
+msgid "Press button below."
+msgstr "Klikněte na tlačítko níže."
+
+#: source/handlers/start/recovery/check.py:51
+msgid "Your code has been updated."
+msgstr "Váš kód byl aktualizován."
+
+#: source/handlers/start/recovery/check.py:53
+msgid "Your code remains the same."
+msgstr "Váš kód zůstává nezměněn."
+
+#: source/handlers/start/recovery/check.py:58
+msgid "Your code isn't correct!"
+msgstr "Váš kód je nesprávný!"
+
+#: source/handlers/start/recovery/check.py:59
+msgid "Try again!"
+msgstr "Zkuste to znovu!"
+
+#: source/handlers/menu/menu.py:34
+msgid "Change it!"
+msgstr "Změňte to!"
+
+#: source/handlers/menu/edit_note.py:17
+msgid "<b>{t}</b>: (Edit-mode)"
+msgstr "<b>{t}</b>: (Režim regulace)"
+
+#: source/handlers/menu/edit_note.py:18
+msgid "(Type /cancel for canceling changes)"
+msgstr "(Změny zrušíte zadáním /cancel)"
+
+#: source/handlers/menu/del_note.py:24
+msgid "{t} has been deleted."
+msgstr "Poznámka s názvem {t} byla smazána."
+
+#: source/handlers/menu/menu.py:46
+msgid "Notes by grn.\n\n\nJust use it."
+msgstr "Poznámky z grn.\n\n\nProstě to použijte."
+
+#: source/handlers/menu/check_edit_note.py:34
+msgid " (Saved)"
+msgstr " (Uloženo)"
+
+#: source/handlers/menu/create/title.py:14
+msgid "Create name of new note\n\n\n(Max. lenght is 64 symbols!)"
+msgstr "Napište název nové poznámky\n\n\n(Max. délka - 64 znaků!)"
+
+#: source/handlers/menu/create/check.py:18
+msgid "<code>{txt}</code> is a good title for note!"
+msgstr "<code>{txt}</code> je dobrý název pro poznámku!"
+
+#: source/handlers/menu/create/check.py:21
+msgid "Press <b>Save</b> button to continue"
+msgstr "Pokračujte kliknutím na <b>Uložit</b>"
+
+#: source/handlers/menu/create/check.py:25
+msgid "Lenght of title cannot be more than 64 symobls!"
+msgstr "Délka jména nesmí být delší než 64 znaků!"
+
+#: source/handlers/menu/create/check.py:28
+msgid "Try again..."
+msgstr "Zkuste to znovu..."
+
+#: source/handlers/menu/settings/settings_menu.py:15
+msgid "Notes by grn.\n\n\nSettings."
+msgstr "Poznámky z grn.\n\n\nNastavení."
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:15
+msgid "<b>Do you really want to delete grnNotes account?</b>"
+msgstr "<b>Opravdu chcete smazat svůj účet grnNotes?</b>"
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:16
+msgid "<b>This action cannot be canceled!</b>"
+msgstr "<b>Tuto akci nelze vrátit zpět!</b>"
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:19
+msgid "Enter your recovery code for continue:"
+msgstr "Zadejte svůj obnovovací kód pro přetažení:"
+
+#: source/handlers/menu/settings/delete_all/check_delete_all.py:30
+msgid "(Incorrect code, try again or press <b>Back</b>)"
+msgstr "(Špatný kód, zkuste to znovu nebo stiskněte <b>Zpět</b>)"
+
+#: source/handlers/menu/settings/recovery/set_recovery.py:30
+msgid "<b>Your recovery key:</b> <code>{rk}</code>"
+msgstr "<b>Váš klíč pro obnovení:</b> <code>{rk}</code>"
+
+#: source/handlers/menu/settings/recovery/set_recovery.py:34
+msgid "The recovery key is needed to restore access to notes from another Telegram account of to delete an account."
+msgstr "Klíč pro obnovení je vyžadován k obnovení přístupu k poznámkám z jiného účtu Telegram nebo k odstranění účtu."
+
+#: source/handlers/menu/settings/languages/set_lang.py:16
+msgid "Choose your language:"
+msgstr "Vyberte si jazyk:"
+
+#: source/keyboards/start.py:11
+msgid "Back"
+msgstr "Zpět"
+
+#: source/keyboards/start.py:15
+msgid "Continue"
+msgstr "Pokračovat"
+
+#: source/keyboards/start.py:19
+msgid "Recovery"
+msgstr "Obnovit"
+
+#: source/keyboards/settings.py:11
+msgid "Back"
+msgstr "Zpět"
+
+#: source/keyboards/settings.py:14
+msgid "Languages"
+msgstr "Jazyky"
+
+#: source/keyboards/settings.py:17
+msgid "Recovery Code"
+msgstr "Kód pro obnovení"
+
+#: source/keyboards/settings.py:20
+msgid "Delete Account"
+msgstr "Smazat účet"
+
+#: source/keyboards/setting_language:30
+msgid "English"
+msgstr "Angličtina"
+
+#: source/keyboards/setting_language:30
+msgid "Polish"
+msgstr "Polština"
+
+#: source/keyboards/setting_language:30
+msgid "Ukranian"
+msgstr "Ukrajinština"
+
+#: source/keyboards/setting_language:30
+msgid "Belarussian"
+msgstr "Běloruština"
+
+#: source/keyboards/setting_language:30
+msgid "Czech"
+msgstr "Česky"
+
+#: source/keyboards/setting_language:30
+msgid "Deutsche"
+msgstr "Německy"
+
+#: source/keyboards/setting_recovery.py:13
+msgid "Reset Recovery Key"
+msgstr "Resetovat klíč pro obnovení"
+
+#: source/keyboards/setting_recovery.py:16
+msgid "Back"
+msgstr "Zpět"
+
+#: source/keyboards/setting_delete.py:9
+msgid "Back"
+msgstr "Zpět"
+
+#: source/keyboards/note.py:8
+msgid "Edit"
+msgstr "Upravit"
+
+#: source/keyboards/note.py:11
+msgid "Delete"
+msgstr "Smazat"
+
+#: source/keyboards/note.py:14
+msgid "Ok"
+msgstr "OK"
+
+#: source/keyboards/note.py:14
+msgid "Back"
+msgstr "Zpět"
+
+#: source/keyboards/menu.py:32
+msgid "Create note"
+msgstr "Vytvořit poznámku"
+
+#: source/keyboards/menu.py:56
+msgid "Here could be your notes. Create it below!"
+msgstr "Vaše poznámky mohou být zde. Vytvořte je níže!"
+
+#: source/keyboards/menu.py:61
+msgid "Settings & FAQ"
+msgstr "Nastavení a odpovědi"
+
+#: source/keyboards/creating.py:9
+msgid "Save"
+msgstr "Uložit"
+
+#: source/keyboards/creating.py:9
+msgid "Cancel"
+msgstr "Zrušit"
+
