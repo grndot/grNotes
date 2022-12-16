@@ -19,3 +19,212 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
+
+#: source/handlers/start/start.py:12
+msgid "Notes by grn."
+msgstr "Notatki z grn."
+
+#: source/handlers/start/recovery/code.py:13
+msgid "Input your recovery code"
+msgstr "Wprowadź swój kod odzyskiwania"
+
+#: source/handlers/start/recovery/check.py:26
+msgid "OK!"
+msgstr "Dobrze!"
+
+#: source/handlers/start/recovery/check.py:29
+msgid "Press button below."
+msgstr "Kliknij przycisk poniżej."
+
+#: source/handlers/start/recovery/check.py:51
+msgid "Your code has been updated."
+msgstr "Twój kod został zaktualizowany."
+
+#: source/handlers/start/recovery/check.py:53
+msgid "Your code remains the same."
+msgstr "Twój kod pozostaje bez zmian."
+
+#: source/handlers/start/recovery/check.py:58
+msgid "Your code isn't correct!"
+msgstr "Twój kod jest nieprawidłowy!"
+
+#: source/handlers/start/recovery/check.py:59
+msgid "Try again!"
+msgstr "Spróbuj ponownie!"
+
+#: source/handlers/menu/menu.py:34
+msgid "Change it!"
+msgstr "Zmień to!"
+
+#: source/handlers/menu/edit_note.py:17
+msgid "<b>{t}</b>: (Edit-mode)"
+msgstr "<b>{t}</b>: (tryb regulacji)"
+
+#: source/handlers/menu/edit_note.py:18
+msgid "(Type /cancel for canceling changes)"
+msgstr "(Wpisz /cancel, aby anulować zmiany)"
+
+#: source/handlers/menu/del_note.py:24
+msgid "{t} has been deleted."
+msgstr "Notatka o nazwie {t} została usunięta."
+
+#: source/handlers/menu/menu.py:46
+msgid "Notes by grn.\n\n\nJust use it."
+msgstr "Notatki z grn.\n\n\nPo prostu użyj."
+
+#: source/handlers/menu/check_edit_note.py:34
+msgid " (Saved)"
+msgstr " (Zapisano)"
+
+#: source/handlers/menu/create/title.py:14
+msgid "Create name of new note\n\n\n(Max. lenght is 64 symbols!)"
+msgstr "Wpisz nazwę nowej notatki\n\n\n(Maks. długość - 64 znaki!)"
+
+#: source/handlers/menu/create/check.py:18
+msgid "<code>{txt}</code> is a good title for note!"
+msgstr "<code>{txt}</code> to dobra nazwa dla notatki!"
+
+#: source/handlers/menu/create/check.py:21
+msgid "Press <b>Save</b> button to continue"
+msgstr "Kliknij <b>Zapisz</b>, aby kontynuować"
+
+#: source/handlers/menu/create/check.py:25
+msgid "Lenght of title cannot be more than 64 symobls!"
+msgstr "Długość nazwy nie może przekraczać 64 znaków!"
+
+#: source/handlers/menu/create/check.py:28
+msgid "Try again..."
+msgstr "Spróbuj ponownie..."
+
+#: source/handlers/menu/settings/settings_menu.py:15
+msgid "Notes by grn.\n\n\nSettings."
+msgstr "Notatki z grn.\n\n\nUstawienia."
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:15
+msgid "<b>Do you really want to delete grnNotes account?</b>"
+msgstr "<b>Czy na pewno chcesz usunąć swoje konto grnNotes?</b>"
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:16
+msgid "<b>This action cannot be canceled!</b>"
+msgstr "<b>Tej czynności nie można cofnąć!</b>"
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:19
+msgid "Enter your recovery code for continue:"
+msgstr "Wprowadź kod odzyskiwania, aby przesunąć palcem:"
+
+#: source/handlers/menu/settings/delete_all/check_delete_all.py:30
+msgid "(Incorrect code, try again or press <b>Back</b>)"
+msgstr "(Błędny kod, spróbuj ponownie lub naciśnij <b>Wstecz</b>)"
+
+#: source/handlers/menu/settings/recovery/set_recovery.py:30
+msgid "<b>Your recovery key:</b> <code>{rk}</code>"
+msgstr "<b>Twój klucz odzyskiwania:</b> <code>{rk}</code>"
+
+#: source/handlers/menu/settings/recovery/set_recovery.py:34
+msgid "The recovery key is needed to restore access to notes from another Telegram account of to delete an account."
+msgstr "Klucz odzyskiwania jest wymagany do przywrócenia dostępu do notatek z innego konta Telegram lub usunięcia konta."
+
+#: source/handlers/menu/settings/languages/set_lang.py:16
+msgid "Choose your language:"
+msgstr "Wybierz swój język:"
+
+#: source/keyboards/start.py:11
+msgid "Back"
+msgstr "Wstecz"
+
+#: source/keyboards/start.py:15
+msgid "Continue"
+msgstr "Kontynuuj"
+
+#: source/keyboards/start.py:19
+msgid "Recovery"
+msgstr "Przywróć"
+
+#: source/keyboards/settings.py:11
+msgid "Back"
+msgstr "Wstecz"
+
+#: source/keyboards/settings.py:14
+msgid "Languages"
+msgstr "Języki"
+
+#: source/keyboards/settings.py:17
+msgid "Recovery Code"
+msgstr "Kod odzyskiwania"
+
+#: source/keyboards/settings.py:20
+msgid "Delete Account"
+msgstr "Usuń konto"
+
+#: source/keyboards/setting_language:30
+msgid "English"
+msgstr "Angielski"
+
+#: source/keyboards/setting_language:30
+msgid "Polish"
+msgstr "Polski"
+
+#: source/keyboards/setting_language:30
+msgid "Ukranian"
+msgstr "Ukraiński"
+
+#: source/keyboards/setting_language:30
+msgid "Belarussian"
+msgstr "Białoruski"
+
+#: source/keyboards/setting_language:30
+msgid "Czech"
+msgstr "Czeski"
+
+#: source/keyboards/setting_language:30
+msgid "Deutsche"
+msgstr "Niemiecki"
+
+#: source/keyboards/setting_recovery.py:13
+msgid "Reset Recovery Key"
+msgstr "Zresetuj klucz odzyskiwania"
+
+#: source/keyboards/setting_recovery.py:16
+msgid "Back"
+msgstr "Wstecz"
+
+#: source/keyboards/setting_delete.py:9
+msgid "Back"
+msgstr "Wstecz"
+
+#: source/keyboards/note.py:8
+msgid "Edit"
+msgstr "Edytuj"
+
+#: source/keyboards/note.py:11
+msgid "Delete"
+msgstr "Usuń"
+
+#: source/keyboards/note.py:14
+msgid "Ok"
+msgstr "OK"
+
+#: source/keyboards/note.py:14
+msgid "Back"
+msgstr "Wstecz"
+
+#: source/keyboards/menu.py:32
+msgid "Create note"
+msgstr "Utwórz notatkę"
+
+#: source/keyboards/menu.py:56
+msgid "Here could be your notes. Create it below!"
+msgstr "Twoje notatki mogą być tutaj. Utwórz je poniżej!"
+
+#: source/keyboards/menu.py:61
+msgid "Settings & FAQ"
+msgstr "Ustawienia i odpowiedzi"
+
+#: source/keyboards/creating.py:9
+msgid "Save"
+msgstr "Zapisz"
+
+#: source/keyboards/creating.py:9
+msgid "Cancel"
+msgstr "Anuluj"
+
