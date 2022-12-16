@@ -19,3 +19,213 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
+
+
+#: source/handlers/start/start.py:12
+msgid "Notes by grn."
+msgstr "Примітки від grn."
+
+#: source/handlers/start/recovery/code.py:13
+msgid "Input your recovery code"
+msgstr "Введіть свій код відновлення"
+
+#: source/handlers/start/recovery/check.py:26
+msgid "OK!"
+msgstr "Добре!"
+
+#: source/handlers/start/recovery/check.py:29
+msgid "Press button below."
+msgstr "Натисни кнопку нижче."
+
+#: source/handlers/start/recovery/check.py:51
+msgid "Your code has been updated."
+msgstr "Твій код оновлено."
+
+#: source/handlers/start/recovery/check.py:53
+msgid "Your code remains the same."
+msgstr "Твій код залишається незмінним"
+
+#: source/handlers/start/recovery/check.py:58
+msgid "Your code isn't correct!"
+msgstr "Твій код не правильний!"
+
+#: source/handlers/start/recovery/check.py:59
+msgid "Try again!"
+msgstr "Спробуй знову!"
+
+#: source/handlers/menu/menu.py:34
+msgid "Change it!"
+msgstr "Змінити!"
+
+#: source/handlers/menu/edit_note.py:17
+msgid "<b>{t}</b>: (Edit-mode)"
+msgstr "<b>{t}</b>: (режим редагування)"
+
+#: source/handlers/menu/edit_note.py:18
+msgid "(Type /cancel for canceling changes)"
+msgstr "(Введіть /cancel для скасування змін)"
+
+#: source/handlers/menu/del_note.py:24
+msgid "{t} has been deleted."
+msgstr "{t} було видалено."
+
+#: source/handlers/menu/menu.py:46
+msgid "Notes by grn.\n\n\nJust use it."
+msgstr "Примітки від grn.\n\n\nПросто використовуйте."
+
+#: source/handlers/menu/check_edit_note.py:34
+msgid " (Saved)"
+msgstr "(Збережено)"
+
+#: source/handlers/menu/create/title.py:14
+msgid "Create name of new note\n\n\n(Max. lenght is 64 symbols!)"
+msgstr "Створіть назву нової нотатки\n\n\n(макс. довжина 64 символи!)"
+
+#: source/handlers/menu/create/check.py:18
+msgid "<code>{txt}</code> is a good title for note!"
+msgstr "<code>{txt}</code> — гарна назва для нотатки!"
+
+#: source/handlers/menu/create/check.py:21
+msgid "Press <b>Save</b> button to continue"
+msgstr "Натиснить кнопку <b>Зберегти</b>, щоб продовжити"
+
+#: source/handlers/menu/create/check.py:25
+msgid "Lenght of title cannot be more than 64 symobls!"
+msgstr "Довжина назви не може перевищувати 64 символи!"
+
+#: source/handlers/menu/create/check.py:28
+msgid "Try again..."
+msgstr "Спробуйте знову..."
+
+#: source/handlers/menu/settings/settings_menu.py:15
+msgid "Notes by grn.\n\n\nSettings."
+msgstr "Примітки від grn.\n\n\nНалаштування."
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:15
+msgid "<b>Do you really want to delete grnNotes account?</b>"
+msgstr "<b>Ви справді хочете видалити обліковий запис grnNotes?</b>"
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:16
+msgid "<b>This action cannot be canceled!</b>"
+msgstr "<b>Цю дію неможливо скасувати!</b>"
+
+#: source/handlers/menu/settings/delete_all/set_delete_all.py:19
+msgid "Enter your recovery code for continue:"
+msgstr "Введіть свій код відновлення, щоб продовжити:"
+
+#: source/handlers/menu/settings/delete_all/check_delete_all.py:30
+msgid "(Incorrect code, try again or press <b>Back</b>)"
+msgstr "(Неправильний код, повторіть спробу або натисніть <b>Назад</b>"
+
+#: source/handlers/menu/settings/recovery/set_recovery.py:30
+msgid "<b>Your recovery key:</b> <code>{rk}</code>"
+msgstr "<b>Твій ключ відновлення:</b> <code>{rk}</code>"
+
+#: source/handlers/menu/settings/recovery/set_recovery.py:34
+msgid "The recovery key is needed to restore access to notes from another Telegram account of to delete an account."
+msgstr "Ключ відновлення потрібен для відновлення доступу до нотаток з іншого облікового запису Telegram або для видалення облікового запису."
+
+#: source/handlers/menu/settings/languages/set_lang.py:16
+msgid "Choose your language:"
+msgstr "Виберіть свою мову:"
+
+#: source/keyboards/start.py:11
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/start.py:15
+msgid "Continue"
+msgstr "Продовжити"
+
+#: source/keyboards/start.py:19
+msgid "Recovery"
+msgstr "Відновлення"
+
+#: source/keyboards/settings.py:11
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/settings.py:14
+msgid "Languages"
+msgstr "Мови"
+
+#: source/keyboards/settings.py:17
+msgid "Recovery Code"
+msgstr "Код відновлення"
+
+#: source/keyboards/settings.py:20
+msgid "Delete Account"
+msgstr "Видалити обліковий запис"
+
+#: source/keyboards/setting_language:30
+msgid "English"
+msgstr "Англійська"
+
+#: source/keyboards/setting_language:30
+msgid "Polish"
+msgstr "Польська"
+
+#: source/keyboards/setting_language:30
+msgid "Ukranian"
+msgstr "Українська"
+
+#: source/keyboards/setting_language:30
+msgid "Belarussian"
+msgstr "Білоруська"
+
+#: source/keyboards/setting_language:30
+msgid "Czech"
+msgstr "Чеська"
+
+#: source/keyboards/setting_language:30
+msgid "Deutsche"
+msgstr "Німецькa"
+
+#: source/keyboards/setting_recovery.py:13
+msgid "Reset Recovery Key"
+msgstr "Скинути ключ відновлення"
+
+#: source/keyboards/setting_recovery.py:16
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/setting_delete.py:9
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/note.py:8
+msgid "Edit"
+msgstr "Редагувати"
+
+#: source/keyboards/note.py:11
+msgid "Delete"
+msgstr "Видалити"
+
+#: source/keyboards/note.py:14
+msgid "Ok"
+msgstr "Добре"
+
+#: source/keyboards/note.py:14
+msgid "Back"
+msgstr "Назад"
+
+#: source/keyboards/menu.py:32
+msgid "Create note"
+msgstr "Створити нотатку"
+
+#: source/keyboards/menu.py:56
+msgid "Here could be your notes. Create it below!"
+msgstr "Тут можуть бути ваші нотатки. Створіть їх нижче!"
+
+#: source/keyboards/menu.py:61
+msgid "Settings & FAQ"
+msgstr "Налаштування та часті питання"
+
+#: source/keyboards/creating.py:9
+msgid "Save"
+msgstr "Зберегти"
+
+#: source/keyboards/creating.py:9
+msgid "Cancel"
+msgstr "Скасувати"
+

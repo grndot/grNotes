@@ -38,12 +38,12 @@ msgid "Press button below."
 msgstr "Націсні кнопку ніжэй."
 
 #: source/handlers/start/recovery/check.py:51
-msgid "Your code nas been updated."
+msgid "Your code has been updated."
 msgstr "Твой код быў абноўлены."
 
 #: source/handlers/start/recovery/check.py:53
-msgid "Your code nas been updated."
-msgstr "Твой код застаецца тым ж самым."
+msgid "Your code remains the same."
+msgstr "Твой код застаецца нязменным."
 
 #: source/handlers/start/recovery/check.py:58
 msgid "Your code isn't correct!"
@@ -178,7 +178,7 @@ msgid "Czech"
 msgstr "Чэшская"
 
 #: source/keyboards/setting_language:30
-msgid "Deusch"
+msgid "Deutsche"
 msgstr "Нямецкая"
 
 #: source/keyboards/setting_recovery.py:13
