@@ -21,7 +21,10 @@ async def menu_setting_after_updating_language(
     user_id = await getIDbyTelegramID(
             session=session,
             telegram_id=cb.from_user.id)
-    
+    locale = await getI18NameByID(
+                    session=session,
+                    language_id=lang_id)
+   
     await updateUserLanguageIDByUserID(
             session=session,
             language_id=lang_id,
@@ -30,10 +33,9 @@ async def menu_setting_after_updating_language(
     await cb.message.edit_text(
             text=get_text(
                 "Notes by grn.\n\n\nSettings.",
-                locale= await getI18NameByID(
-                    session=session,
-                    language_id=lang_id)),
-            reply_markup=settings_kb())
+                locale=locale),
+            reply_markup=settings_kb(
+                locale=locale))
 
 
 def reg_menu_setting_after_updating_language(
