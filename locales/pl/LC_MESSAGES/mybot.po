@@ -89,7 +89,7 @@ msgid "Press <b>Save</b> button to continue"
 msgstr "Kliknij <b>Zapisz</b>, aby kontynuować"
 
 #: source/handlers/menu/create/check.py:25
-msgid "Lenght of title cannot be more than 64 symobls!"
+msgid "Length of title cannot be more than 64 symbols!"
 msgstr "Długość nazwy nie może przekraczać 64 znaków!"
 
 #: source/handlers/menu/create/check.py:28

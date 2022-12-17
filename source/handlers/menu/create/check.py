@@ -22,7 +22,7 @@ async def check_title_of_note(
                 ],
             # text[1] - for False
             [
-                get_text('Lenght of title cannot be more than 64 symobls!'),
+                get_text("Length of title cannot be more than 64 symbols!"),
                 '',
                 '',
                 get_text('Try again...')

@@ -88,7 +88,7 @@ msgid "Press <b>Save</b> button to continue"
 msgstr "Pokračujte kliknutím na <b>Uložit</b>"
 
 #: source/handlers/menu/create/check.py:25
-msgid "Lenght of title cannot be more than 64 symobls!"
+msgid "Length of title cannot be more than 64 symbols!"
 msgstr "Délka jména nesmí být delší než 64 znaků!"
 
 #: source/handlers/menu/create/check.py:28
