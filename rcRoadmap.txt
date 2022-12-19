@@ -3,7 +3,7 @@
 (18/12/22):
 
 Дадай systemd (выдалена)
-Ствары install.sh
+Ствары install.sh (зрабiў)
 Ствары READ.me
 
 
